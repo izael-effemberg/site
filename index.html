@@ -172,6 +172,7 @@
   .hero {
     padding: 88px 0 96px;
     position: relative;
+    overflow: hidden;
   }
   .hero-grid {
     display: grid;
@@ -180,6 +181,62 @@
     align-items: end;
   }
   @media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+  /* ============================================
+     HERO BACKGROUND GIF
+     ============================================ */
+  .hero-bg-gif {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-bg-gif__media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.18;
+    display: block;
+    will-change: transform;
+  }
+  .hero-bg-gif__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      #F4EFE6 0%,
+      rgba(244, 239, 230, 0.88) 30%,
+      rgba(244, 239, 230, 0.45) 65%,
+      rgba(244, 239, 230, 0.05) 100%
+    );
+  }
+  .hero > .wrap {
+    position: relative;
+    z-index: 2;
+  }
+  @media (max-width: 1024px) {
+    .hero-bg-gif__overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(244, 239, 230, 0.80) 0%,
+        rgba(244, 239, 230, 0.50) 50%,
+        rgba(244, 239, 230, 0.80) 100%
+      );
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-bg-gif__media {
+      opacity: 0.12;
+      object-position: center center;
+    }
+    .hero-bg-gif__overlay {
+      background: rgba(244, 239, 230, 0.75);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bg-gif__media { display: none; }
+  }
 
   .hero-tag {
     display: inline-flex; align-items: center; gap: 10px;
@@ -1159,6 +1216,18 @@
 
 <!-- HERO -->
 <section id="top" class="hero">
+
+  <div class="hero-bg-gif" aria-hidden="true">
+    <img
+      src="assets/talk-iza.GIF"
+      alt=""
+      class="hero-bg-gif__media"
+      loading="eager"
+      decoding="async"
+    >
+    <div class="hero-bg-gif__overlay"></div>
+  </div>
+
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -1169,7 +1238,7 @@
           em escala.
         </h1>
         <p class="hero-sub">
-          Sou Izael Effemberg. Há 13 anos construo e escalo organizações de produto e
+          Sou Izael Effemberg. Há 15 anos construo e escalo organizações de produto e
           tecnologia — do iFood ao Itaú, do Stone à Sem Parar — combinando profundidade
           técnica, governança e a coragem de tomar decisões difíceis.
         </p>
@@ -1191,12 +1260,12 @@
 
     <div class="hero-stats">
       <div>
-        <div class="n"><em>13</em>+</div>
+        <div class="n"><em>14</em>+</div>
         <div class="l">Anos liderando<br/>produto & tech</div>
       </div>
       <div>
-        <div class="n"><em>50</em></div>
-        <div class="l">Pessoas na<br/>tribo atual</div>
+        <div class="n"><em>200</em></div>
+        <div class="l">Pessoas sob<br/> sua liderança</div>
       </div>
       <div>
         <div class="n"><em>20</em>+</div>
@@ -1271,7 +1340,7 @@
         <span>§ 02</span>
         <span class="serif">histórico executivo</span>
       </div>
-      <h2>Treze anos<br/>construindo <em>operações</em><br/>de alto rendimento.</h2>
+      <h2>Quinze anos<br/>construindo <em>operações</em><br/>de alto rendimento.</h2>
     </div>
 
     <div class="timeline">
