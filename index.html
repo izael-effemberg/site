@@ -2061,7 +2061,10 @@
         </div>
       </div>
     </div>
-    <div style="margin-top:48px; display:flex; justify-content:space-between; font-size:11px; font-family:var(--mono); letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3);">
+    <div style="margin-top:32px; text-align:center; font-size:11px; font-family:var(--mono); letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3);">
+      Total de visitas ao site: <span id="visit-count">—</span>
+    </div>
+    <div style="margin-top:16px; display:flex; justify-content:space-between; font-size:11px; font-family:var(--mono); letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3);">
       <span>© 2026 — Todos os direitos reservados</span>
       <span>São Paulo, Brasil</span>
     </div>
@@ -2076,6 +2079,18 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script type="text/babel" src="tweaks-panel.jsx"></script>
 <script type="text/babel" src="tweaks-app.jsx"></script>
+
+<script>
+  (async function() {
+    try {
+      const r = await fetch('https://api.counterapi.dev/v1/izaeleffemberg/site-visits/up');
+      const d = await r.json();
+      document.getElementById('visit-count').textContent = d.count.toLocaleString('pt-BR');
+    } catch {
+      document.getElementById('visit-count').textContent = '—';
+    }
+  })();
+</script>
 
 <script>
   // simple scroll-reveal
