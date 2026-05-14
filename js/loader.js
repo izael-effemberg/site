@@ -3,9 +3,9 @@
 const SECTIONS = [
   'hero',
   'sobre',
-  'redes',
-  'midia',
   'executivo',
+  'midia',
+  'redes',
   'servicos',
   'contato',
   'footer'
