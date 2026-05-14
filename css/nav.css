@@ -1,0 +1,96 @@
+/* ============================================================
+   NAV — Top navigation bar and social icon row
+   ============================================================ */
+
+/* ---------- Nav ---------- */
+nav.top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: color-mix(in oklch, var(--bg) 78%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+nav.top .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+nav.top .logo {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  display: flex; align-items: center; gap: 10px;
+}
+nav.top .logo .dot {
+  width: 8px; height: 8px; background: var(--accent); border-radius: 50%;
+  display: inline-block;
+}
+nav.top .links {
+  display: flex; gap: 28px; align-items: center;
+}
+nav.top .links a {
+  font-size: 13px; color: var(--ink-2); letter-spacing: -0.01em;
+  transition: color 0.15s;
+}
+nav.top .links a:hover { color: var(--ink); }
+nav.top .links a.cta {
+  padding: 9px 16px;
+  background: var(--ink);
+  color: #ffffff;
+  font-size: 13px;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  transition: transform 0.15s;
+  cursor: pointer;
+}
+nav.top .links a.cta:hover { transform: translateY(-1px); }
+
+/* Social icon row (nav + footer) */
+.soc-row {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding-right: 12px;
+  border-right: 1px solid var(--line);
+  margin-right: 8px;
+}
+.soc-row a {
+  width: 32px; height: 32px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  color: var(--ink-2);
+  border: 1px solid transparent;
+  transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.18s;
+}
+.soc-row a:hover {
+  color: var(--ink);
+  border-color: var(--line);
+  background: var(--bg-2);
+  transform: translateY(-1px);
+}
+.soc-row a svg { display: block; }
+@media (max-width: 768px) {
+  .soc-row { display: none; }
+}
+
+footer .soc-row {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+  gap: 8px;
+}
+footer .soc-row a {
+  width: 36px; height: 36px;
+  border: 1px solid var(--line);
+}
+@media (max-width: 768px) {
+  footer .soc-row { display: inline-flex; }
+}
+
+@media (max-width: 768px) {
+  nav.top .row { padding: 14px 24px; }
+  nav.top .links a:not(.cta) { display: none; }
+}
