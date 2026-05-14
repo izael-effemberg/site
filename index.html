@@ -262,6 +262,31 @@
     100% { box-shadow: 0 0 0 0 oklch(0.7 0.18 145 / 0); }
   }
 
+  .hero-role {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 32px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .hero-role .role-sep {
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .hero-role .role-part {
+    white-space: nowrap;
+  }
+  .hero-role .role-part.accent {
+    color: var(--accent);
+  }
+
   .hero h1 {
     font-family: var(--serif);
     font-weight: 400;
@@ -539,6 +564,23 @@
   .tl-role .role-company .dot {
     width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
   }
+  .tl-badge {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 2px;
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 30px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--tl-brand, var(--ink-3));
+    opacity: 0.82;
+    transition: opacity 0.2s;
+  }
+  .tl-row:hover .tl-badge { opacity: 1; }
+  .tl-badge.lower { text-transform: lowercase; }
+  .tl-badge.caps  { text-transform: uppercase; letter-spacing: 0.1em; font-family: var(--sans); font-size: clamp(14px, 1.5vw, 20px); font-weight: 600; }
+  .tl-badge.mono-wm { font-family: var(--mono); font-size: clamp(13px, 1.4vw, 17px); letter-spacing: 0.06em; }
   .tl-row .tl-impact {
     padding-top: 12px;
     display: grid;
@@ -587,6 +629,54 @@
   }
 
   /* ---------- Creator ---------- */
+  /* ---------- Media Carousel ---------- */
+  .media-carousel-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 32px;
+  }
+  .media-carousel-label {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
+  }
+  .media-nav { display: flex; align-items: center; gap: 10px; }
+  .media-dots { display: flex; align-items: center; gap: 5px; }
+  .media-dot {
+    height: 6px; width: 6px; border-radius: 3px;
+    background: var(--line); border: none; cursor: pointer; padding: 0;
+    transition: width 0.25s, background 0.25s;
+  }
+  .media-dot.active { width: 20px; background: var(--accent); }
+  .media-btn {
+    width: 38px; height: 38px; border: 1px solid var(--line);
+    border-radius: 50%; background: transparent; color: var(--ink);
+    cursor: pointer; display: inline-flex; align-items: center;
+    justify-content: center; transition: background 0.15s, color 0.15s,
+    border-color 0.15s, transform 0.15s; line-height: 1;
+  }
+  .media-btn:hover:not(:disabled) {
+    background: var(--ink); color: var(--bg); border-color: var(--ink); transform: translateY(-1px);
+  }
+  .media-btn:disabled { opacity: 0.28; cursor: not-allowed; }
+  .media-counter {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.1em; color: var(--ink-3); min-width: 28px; text-align: center;
+  }
+  .media-overflow { overflow: hidden; width: 100%; }
+  .media-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .media-page {
+    flex: 0 0 100%; width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 900px) { .media-page { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .media-page { grid-template-columns: 1fr; } }
+  .media-page .feat-card { min-height: 0; height: 100%; }
+  .media-page .feat-cover { aspect-ratio: 4 / 3 !important; }
+
   .creator-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -955,6 +1045,119 @@
     background: var(--ink); color: var(--bg); transform: rotate(-45deg); border-color: var(--ink);
   }
 
+  /* ---------- Instagram Carousel ---------- */
+  .ig-carousel { margin-top: 48px; }
+  .ig-carousel-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  .ig-carousel-label {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
+  }
+  .ig-nav { display: flex; align-items: center; gap: 10px; }
+  .ig-dots { display: flex; align-items: center; gap: 5px; }
+  .ig-dot {
+    height: 6px; width: 6px; border-radius: 3px;
+    background: var(--line); border: none; cursor: pointer; padding: 0;
+    transition: width 0.25s, background 0.25s;
+  }
+  .ig-dot.active { width: 20px; background: var(--accent); }
+  .ig-btn {
+    width: 38px; height: 38px; border: 1px solid var(--line);
+    border-radius: 50%; background: transparent; color: var(--ink);
+    cursor: pointer; display: inline-flex; align-items: center;
+    justify-content: center; transition: background 0.15s, color 0.15s,
+    border-color 0.15s, transform 0.15s; line-height: 1;
+  }
+  .ig-btn:hover:not(:disabled) {
+    background: var(--ink); color: var(--bg);
+    border-color: var(--ink); transform: translateY(-1px);
+  }
+  .ig-btn:disabled { opacity: 0.28; cursor: not-allowed; }
+  .ig-overflow { overflow: hidden; width: 100%; }
+  .ig-track {
+    display: flex; gap: 24px; align-items: flex-start;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .ig-slide {
+    flex: 0 0 auto; width: 100%;
+    display: flex; justify-content: center;
+  }
+  .ig-slide .instagram-media {
+    max-width: 100% !important; min-width: 0 !important;
+    width: 100% !important; margin: 0 auto !important;
+    border-radius: 4px !important; box-shadow: none !important;
+    border: 1px solid var(--line) !important;
+  }
+  @media (min-width: 900px) {
+    .ig-slide { width: calc(50% - 12px); }
+  }
+  @media (min-width: 1200px) {
+    .ig-slide { width: calc(33.333% - 16px); }
+  }
+  .ig-counter {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.1em; color: var(--ink-3);
+    min-width: 36px; text-align: center;
+  }
+
+  /* ---------- Feedback Cards ---------- */
+  .feedback-block { margin-top: 56px; }
+  .feedback-block > .eyebrow { margin-bottom: 28px; }
+  .feedback-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .feedback-card {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px 32px 28px;
+    background: var(--bg-2);
+    position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .feedback-card:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+  .feedback-card::before {
+    content: '\201C';
+    font-family: var(--serif);
+    font-size: 72px;
+    line-height: 0.75;
+    color: var(--accent);
+    opacity: 0.5;
+    position: absolute;
+    top: 20px; left: 26px;
+    pointer-events: none;
+  }
+  .feedback-quote {
+    font-family: var(--serif);
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    padding-top: 28px;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .feedback-author {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .feedback-name {
+    font-size: 14px; font-weight: 600;
+    letter-spacing: -0.01em; color: var(--ink);
+  }
+  .feedback-role {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
   /* ---------- Services ---------- */
   .svc-grid {
     display: grid;
@@ -1192,8 +1395,9 @@
     <a href="#top" class="logo"><span class="dot"></span>Izael Effemberg</a>
     <div class="links">
       <a href="#sobre">Sobre</a>
+      <a href="#redes">Redes</a>
+      <a href="#midia">Na mídia</a>
       <a href="#executivo">Executivo</a>
-      <a href="#creator">Creator</a>
       <a href="#servicos">Serviços</a>
       <div class="soc-row" aria-label="Redes sociais">
         <a href="https://www.instagram.com/IzaelEffemberg/" target="_blank" aria-label="Instagram">
@@ -1229,9 +1433,18 @@
   </div>
 
   <div class="wrap">
+    <div class="hero-role">
+      <span class="role-part">Executivo de Tecnologia</span>
+      <span class="role-sep" aria-hidden="true"></span>
+      <span class="role-part">Consultor</span>
+      <span class="role-sep" aria-hidden="true"></span>
+      <span class="role-part accent">Creator</span>
+    </div>
+    <div style="display:flex; justify-content:center; margin-bottom:28px;">
+      <div class="hero-tag"><span class="pulse"></span>Disponível para novas parcerias · Q2 e Q3 2026</div>
+    </div>
     <div class="hero-grid">
       <div>
-        <div class="hero-tag"><span class="pulse"></span>Disponível para consultoria · Q2 2026</div>
         <h1 class="display">
           Produto, <em>plataforma</em><br/>
           e <span class="stroke">estratégia</span><br/>
@@ -1244,7 +1457,7 @@
         </p>
         <div class="hero-ctas">
           <a href="#contato" class="btn primary">Agendar uma conversa <span class="arrow">↗</span></a>
-          <a href="#executivo" class="btn ghost">Ver trajetória <span class="arrow">↓</span></a>
+          <a href="#redes" class="btn ghost">Ver presença <span class="arrow">↓</span></a>
         </div>
       </div>
 
@@ -1321,7 +1534,7 @@
           <div class="fact"><dt>Base</dt><dd>São Paulo, BR</dd></div>
           <div class="fact"><dt>Função</dt><dd>Head / CoS</dd></div>
           <div class="fact"><dt>Áreas</dt><dd>Plataforma, Pagamentos</dd></div>
-          <div class="fact"><dt>Formação</dt><dd>UFRN · UFPE</dd></div>
+          <div class="fact"><dt>Formação</dt><dd>UFRN · UFPE · IFRN</dd></div>
           <div class="fact"><dt>Certificações</dt><dd>CPO IFTL · Reforge</dd></div>
           <div class="fact"><dt>Idiomas</dt><dd>PT · EN</dd></div>
         </dl>
@@ -1332,440 +1545,16 @@
 
 <div class="wrap"><div class="rule"></div></div>
 
-<!-- EXECUTIVO -->
-<section id="executivo" class="sec">
+<!-- PRESENÇA NAS REDES -->
+<section id="redes" class="sec">
   <div class="wrap">
     <div class="sec-header">
       <div class="sec-num">
         <span>§ 02</span>
-        <span class="serif">histórico executivo</span>
+        <span class="serif">presença nas redes</span>
       </div>
-      <h2>Quinze anos<br/>construindo <em>operações</em><br/>de alto rendimento.</h2>
+      <h2>Uma audiência de <em>34&nbsp;mil+</em><br/>profissionais escuta e<br/>responde toda semana.</h2>
     </div>
-
-    <div class="timeline">
-
-      <div class="tl-row">
-        <div class="tl-when">2025 — Hoje</div>
-        <div class="tl-role">
-          <div class="role-title">Senior Group PM — Technical</div>
-          <div class="role-company"><span class="dot"></span>Sem Parar / Corpay · São Paulo</div>
-          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
-            Lidero tribo de ~50 pessoas e 5 PMs sêniores em produtos de
-            plataforma — pagamentos, conectividade, autenticação, automação
-            operacional e enriquecimento de dados.
-          </p>
-        </div>
-        <div class="tl-impact">
-          <div class="impact-cell">
-            <div class="num">—<em>20</em>%</div>
-            <div class="desc">Custo de transação de cartão de crédito</div>
-          </div>
-          <div class="impact-cell">
-            <div class="num">—<em>80</em>%</div>
-            <div class="desc">Turnover do time, em um ano</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-row">
-        <div class="tl-when">2024 — 2025</div>
-        <div class="tl-role">
-          <div class="role-title">Principal Consultant & Head of Product</div>
-          <div class="role-company"><span class="dot"></span>Vertigo / VeeCode · São Paulo</div>
-          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
-            Dirigi programas estratégicos para P&amp;G, Itaú, Banco Master, Sankhya e
-            Credsystem. Fundei a área de Technical Delivery Management da Vertigo.
-          </p>
-        </div>
-        <div class="tl-impact">
-          <div class="impact-cell">
-            <div class="num">—<em>40</em>%</div>
-            <div class="desc">Lead time de entrega em programas enterprise</div>
-          </div>
-          <div class="impact-cell">
-            <div class="num">+<em>60</em>%</div>
-            <div class="desc">Qualidade de release e uptime de plataforma</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-row">
-        <div class="tl-when">2023 — 2024</div>
-        <div class="tl-role">
-          <div class="role-title">Principal Technical PM</div>
-          <div class="role-company"><span class="dot"></span>Stone · São Paulo</div>
-          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
-            Estratégia, arquitetura e roadmap da plataforma de Data Engineering
-            dentro da Foundation Platform da Stone.
-          </p>
-        </div>
-        <div class="tl-impact">
-          <div class="impact-cell">
-            <div class="num">—<em>30</em>%</div>
-            <div class="desc">Violações de SLA na plataforma</div>
-          </div>
-          <div class="impact-cell">
-            <div class="num"><em>↑</em></div>
-            <div class="desc">Adoção self-service de tooling interno</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-row">
-        <div class="tl-when">2022 — 2023</div>
-        <div class="tl-role">
-          <div class="role-title">Head of Product & Program Mgmt — Platform</div>
-          <div class="role-company"><span class="dot"></span>WillBank · Remoto</div>
-          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
-            Criei a função inaugural de TPM do WillBank — 6 reportes diretos,
-            53 indiretos. Visão, OKRs e roadmap multi-anual para platform
-            engineering.
-          </p>
-        </div>
-        <div class="tl-impact">
-          <div class="impact-cell">
-            <div class="num"><em>53</em></div>
-            <div class="desc">Reportes indiretos sob a operação que estruturei</div>
-          </div>
-          <div class="impact-cell">
-            <div class="num"><em>5</em>BU</div>
-            <div class="desc">Unidades de negócio com entregas dependentes</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-row">
-        <div class="tl-when">2021 — 2022</div>
-        <div class="tl-role">
-          <div class="role-title">Staff Technical Program Manager</div>
-          <div class="role-company"><span class="dot"></span>Creditas · Brasil, México, Espanha</div>
-          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
-            Tribo de Mobile Platform, suportando 9 tribos em 3 países.
-            Redesign de arquitetura mobile.
-          </p>
-        </div>
-        <div class="tl-impact">
-          <div class="impact-cell">
-            <div class="num"><em>2,1 → 4,2</em></div>
-            <div class="desc">Rating do app nas lojas</div>
-          </div>
-          <div class="impact-cell">
-            <div class="num">R$<em>1</em>,<em>5</em>M</div>
-            <div class="desc">Economizados em cobrança atrasada</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-row">
-        <div class="tl-when">2020 — 2021</div>
-        <div class="tl-role">
-          <div class="role-title">Senior Technical PM — Platform Engineering</div>
-          <div class="role-company"><span class="dot"></span>iFood · Brasil, México, Colômbia</div>
-          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
-            Padrões de engenharia e resiliência das jornadas críticas das
-            tribos Consumer, Logistics e Restaurants.
-          </p>
-        </div>
-        <div class="tl-impact">
-          <div class="impact-cell">
-            <div class="num">+<em>42</em>%</div>
-            <div class="desc">Uptime em jornadas críticas (9M+ pedidos/mês)</div>
-          </div>
-          <div class="impact-cell">
-            <div class="num">—<em>23</em>%</div>
-            <div class="desc">MTTR em resposta a incidentes</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-row">
-        <div class="tl-when">2017 — 2020</div>
-        <div class="tl-role">
-          <div class="role-title">Senior Consultant — Reliability SWE</div>
-          <div class="role-company"><span class="dot"></span>ThoughtWorks · Global</div>
-          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
-            Time global (US, UK, BR, CN, IN) construindo a primeira plataforma
-            de Automated Delivery Infrastructure da ThoughtWorks.
-          </p>
-        </div>
-        <div class="tl-impact">
-          <div class="impact-cell">
-            <div class="num">—<em>70</em>%</div>
-            <div class="desc">Custo de infraestrutura AWS interna</div>
-          </div>
-          <div class="impact-cell">
-            <div class="num"><em>5</em> países</div>
-            <div class="desc">Distribuição do time que liderei tecnicamente</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="tl-summary">
-      <div class="tl-card">
-        <div class="label">§ Stack de atuação</div>
-        <div class="lead">Plataforma, fintech, infra, conectividade e governança técnica.</div>
-      </div>
-      <div class="tl-card">
-        <div class="label">§ Onde brilho</div>
-        <div class="lead">Decisões em ambiguidade, alinhamento de stakeholders sêniores, escala de times.</div>
-      </div>
-      <div class="tl-card">
-        <div class="label">§ Reconhecimentos</div>
-        <div class="lead">2º lugar no Global Platinion Hackathon · BCG, 2023. Mentoria CPO IFTL.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="wrap"><div class="rule"></div></div>
-
-<!-- CREATOR -->
-<section id="creator" class="sec">
-  <div class="wrap">
-    <div class="sec-header">
-      <div class="sec-num">
-        <span>§ 03</span>
-        <span class="serif">creator & comunicador</span>
-      </div>
-      <h2>Já levei tecnologia<br/>e estratégia <em>a quem</em><br/>importa ouvir.</h2>
-    </div>
-
-    <div class="creator-grid">
-
-      <a class="feat-card spotlight large" href="https://globoplay.globo.com/v/7557264/" target="_blank">
-        <div class="feat-cover cov-tex-glow" style="--cov-bg: linear-gradient(135deg, #C9302C 0%, #1A1714 100%); --cov-fg: #F4EFE6;">
-          <span class="cov-tag">● Ao vivo · BBB</span>
-          <span class="cov-num">N.01</span>
-          <div class="cov-glyph tv"></div>
-          <div class="cov-brand">Globoplay</div>
-          <div class="cov-bottom"><span>TV aberta · prime time</span><span>2024</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Aparição · TV aberta</div>
-          <div class="title">Big Brother Brasil — Cartola da Globo</div>
-          <div class="where">
-            <span>Globoplay · 2024</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card mid" href="https://www.youtube.com/watch?v=Kj6WztRIHUA&t=12056s" target="_blank">
-        <div class="feat-cover cov-tex-grid" style="--cov-bg: linear-gradient(160deg, #0E1B2E 0%, #1F3554 100%); --cov-fg: #C9E4FF;">
-          <span class="cov-tag">↳ Keynote</span>
-          <span class="cov-num">N.02</span>
-          <div class="cov-brand">Platform<br/><em style="color:#62A8FF">Con</em> BR</div>
-          <div class="cov-bottom"><span>Conferência nacional</span><span>20K+ devs</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Keynote</div>
-          <div class="title">IDPs como coração da estratégia de engenharia.</div>
-          <div class="where">
-            <span>PlatformCon Brasil</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card small" href="https://startups.com.br/danca-das-cadeiras/vertigo-anuncia-izael-effemberg-como-head-de-produto-e-estrategia/" target="_blank">
-        <div class="feat-cover cov-tex-stripes" style="--cov-bg: linear-gradient(135deg, #1A1714 0%, #2A1F14 100%); --cov-fg: #F39C2A;">
-          <span class="cov-tag">↳ Imprensa</span>
-          <span class="cov-num">N.03</span>
-          <div class="cov-brand">startups.<br/><em>com.br</em></div>
-          <div class="cov-bottom"><span>Dança das cadeiras</span><span>BR</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Imprensa</div>
-          <div class="title">Head de Produto e Estratégia da Vertigo.</div>
-          <div class="where">
-            <span>startups.com.br</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card small" href="https://open.spotify.com/episode/29Pt6Xt09HjzOz9jTYPS3b" target="_blank">
-        <div class="feat-cover cov-tex-wave" style="--cov-bg: linear-gradient(155deg, #0E2E1E 0%, #2A6E45 100%); --cov-fg: #B7F0CD;">
-          <span class="cov-tag">↳ Podcast</span>
-          <span class="cov-num">N.04</span>
-          <div class="cov-glyph disc"></div>
-          <div class="cov-brand"><em>Sextil</em></div>
-          <div class="cov-bottom"><span>Spotify · áudio</span><span>1h32</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Podcast</div>
-          <div class="title">Sextil — carreira, afetos e relacionamentos.</div>
-          <div class="where">
-            <span>Spotify</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card small" href="https://youtu.be/dg-oKx8gNwY" target="_blank">
-        <div class="feat-cover cov-tex-dots" style="--cov-bg: linear-gradient(145deg, #2A1840 0%, #5A2E8C 100%); --cov-fg: #E8D6FF;">
-          <span class="cov-tag">↳ Mesa redonda</span>
-          <span class="cov-num">N.05</span>
-          <div class="cov-brand">The Developer's<br/><em>Conference</em></div>
-          <div class="cov-bottom"><span>TDC · São Paulo</span><span>2024</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Mesa redonda</div>
-          <div class="title">IA, sustentabilidade e governança em SWE.</div>
-          <div class="where">
-            <span>The Developer's Conference</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card wide" href="https://www.linkedin.com/events/doc-digo-estrat-gia-comocrescer7330310609403580416/theater/" target="_blank">
-        <div class="feat-cover cov-tex-grid" style="--cov-bg: linear-gradient(120deg, #6E4BE5 0%, #1B3A8A 100%); --cov-fg: #FFFFFF;">
-          <span class="cov-tag">↳ Live colab</span>
-          <span class="cov-num">N.06</span>
-          <div class="cov-brand">Rocketseat<br/>× <em>LinkedIn</em></div>
-          <div class="cov-bottom"><span>Doc digo · carreira em tech</span><span>Live</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Live colab</div>
-          <div class="title">Como crescer em tecnologia — Rocketseat &amp; LinkedIn.</div>
-          <div class="where">
-            <span>LinkedIn Live</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card small" href="https://www.youtube.com/live/REBQyMIDxZ4" target="_blank">
-        <div class="feat-cover cov-tex-stripes" style="--cov-bg: linear-gradient(160deg, #3A1A1A 0%, #7C2C2C 100%); --cov-fg: #FFD1C7;">
-          <span class="cov-tag">↳ Podcast</span>
-          <span class="cov-num">N.07</span>
-          <div class="cov-glyph disc"></div>
-          <div class="cov-brand">Mediador<br/><em>Cast</em></div>
-          <div class="cov-bottom"><span>YouTube · 1h+</span><span>VeeCode</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Podcast</div>
-          <div class="title">MediadorCast — visão de produto técnico.</div>
-          <div class="where">
-            <span>YouTube</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card small" href="https://youtu.be/jOGdJ6Hxp4w" target="_blank">
-        <div class="feat-cover cov-tex-grid" style="--cov-bg: linear-gradient(135deg, #0A0A0A 0%, #1F2A1A 100%); --cov-fg: #8AE08A;">
-          <span class="cov-tag">↳ Entrevista</span>
-          <span class="cov-num">N.08</span>
-          <div class="cov-brand" style="font-family:var(--mono); font-style:normal; font-size:clamp(20px, 2.6vw, 32px); letter-spacing:0;">$ papo_<br/>sysadmin</div>
-          <div class="cov-bottom"><span>SRE · plataforma</span><span>v.04</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Entrevista</div>
-          <div class="title">Executivo de tecnologia e produtos de plataforma.</div>
-          <div class="where">
-            <span>Papo de SysAdmin</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card small" href="https://www.nic.br/videos/ver/fib10-discriminacoes-algoritmicas-impactos-na-sociedade-perspectivas-e-solucoes/" target="_blank">
-        <div class="feat-cover cov-tex-dots" style="--cov-bg: linear-gradient(155deg, #102A4A 0%, #2A5594 100%); --cov-fg: #DCE9FF;">
-          <span class="cov-tag">↳ Painel</span>
-          <span class="cov-num">N.09</span>
-          <div class="cov-brand">NIC<em>.br</em><br/>FIB 10</div>
-          <div class="cov-bottom"><span>Painel acadêmico</span><span>Brasília</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Painel</div>
-          <div class="title">Discriminações algorítmicas e impacto social.</div>
-          <div class="where">
-            <span>NIC.br · FIB 10</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card small" href="https://youtu.be/rDNJghKPrck" target="_blank">
-        <div class="feat-cover cov-tex-stripes" style="--cov-bg: linear-gradient(135deg, #4A1A2E 0%, #8C2A4A 100%); --cov-fg: #FFD8E2;">
-          <span class="cov-tag">↳ Entrevista</span>
-          <span class="cov-num">N.10</span>
-          <div class="cov-brand">Papo<br/>Metrópole · <em>UFRN</em></div>
-          <div class="cov-bottom"><span>Representatividade</span><span>Natal/RN</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Entrevista</div>
-          <div class="title">Representatividade LGBTQIAPN+ no mercado de tech.</div>
-          <div class="where">
-            <span>Papo Metrópole · UFRN</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card small" href="https://www.youtube.com/live/Y3BfHYySV-k" target="_blank">
-        <div class="feat-cover cov-tex-glow" style="--cov-bg: linear-gradient(140deg, #B5704A 0%, #F39C2A 100%); --cov-fg: #1A1714;">
-          <span class="cov-tag" style="opacity:0.85;">↳ Talk</span>
-          <span class="cov-num" style="opacity:0.85;">N.11</span>
-          <div class="cov-brand">Startup<em>Days</em></div>
-          <div class="cov-bottom" style="opacity:0.85;"><span>Empreendedorismo · ideação</span><span>BR</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Talk</div>
-          <div class="title">Como idear produtos digitais.</div>
-          <div class="where">
-            <span>StartupDays</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="feat-card small" href="https://youtu.be/OTMug59Mnpg" target="_blank">
-        <div class="feat-cover cov-tex-grid" style="--cov-bg: linear-gradient(135deg, #0E1414 0%, #1F3C3C 100%); --cov-fg: #7FE7E2;">
-          <span class="cov-tag">↳ Talk técnica</span>
-          <span class="cov-num">N.12</span>
-          <div class="cov-glyph square"></div>
-          <div class="cov-brand">DevOps<br/><em>Days</em> BH</div>
-          <div class="cov-bottom"><span>Observabilidade · SRE</span><span>2019</span></div>
-        </div>
-        <div class="feat-body">
-          <div class="kind">↳ Talk técnica</div>
-          <div class="title">Observabilidade em produtos digitais.</div>
-          <div class="where">
-            <span>DevOps Days BH</span>
-            <span class="arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <span>Globoplay</span><span>startups.com.br</span><span>PlatformCon Brasil</span>
-        <span>The Developer's Conference</span><span>Rocketseat</span><span>NIC.br</span>
-        <span>StartupDays</span><span>DevOps Days</span><span>iFood Tech Talks</span>
-        <span>UFRN · Papo Metrópole</span><span>Spotify · Sextil</span><span>MediadorCast</span>
-        <span>Papo de SysAdmin</span>
-        <span>Globoplay</span><span>startups.com.br</span><span>PlatformCon Brasil</span>
-        <span>The Developer's Conference</span><span>Rocketseat</span><span>NIC.br</span>
-        <span>StartupDays</span><span>DevOps Days</span><span>iFood Tech Talks</span>
-        <span>UFRN · Papo Metrópole</span><span>Spotify · Sextil</span><span>MediadorCast</span>
-        <span>Papo de SysAdmin</span>
-      </div>
-    </div>
-
-    <!-- SOCIAL PRESENCE -->
-    <div class="social-block">
-      <div class="social-header">
-        <div class="eyebrow">§ 03.2 — Presença nas redes</div>
-        <h3 class="social-title">Uma audiência de <em>34&nbsp;mil+</em><br/>profissionais escuta e<br/>responde toda semana.</h3>
-      </div>
 
       <div class="social-grid">
         <a class="social-card" href="https://www.instagram.com/IzaelEffemberg/" target="_blank">
@@ -1836,136 +1625,72 @@
           </div>
         </a>
       </div>
-    </div>
-  </div>
-</section>
 
-<div class="wrap"><div class="rule"></div></div>
-
-<!-- SERVIÇOS -->
-<section id="servicos" class="sec">
-  <div class="wrap">
-    <div class="sec-header">
-      <div class="sec-num">
-        <span>§ 04</span>
-        <span class="serif">como podemos trabalhar</span>
+    <!-- INSTAGRAM CAROUSEL -->
+    <div class="ig-carousel">
+      <div class="ig-carousel-head">
+        <span class="ig-carousel-label">↳ Publicações</span>
+        <div class="ig-nav">
+          <div class="ig-dots" id="ig-dots"></div>
+          <span class="ig-counter" id="ig-counter">1 / 6</span>
+          <button class="ig-btn" id="ig-prev" aria-label="Anterior">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2L4 7l5 5"/></svg>
+          </button>
+          <button class="ig-btn" id="ig-next" aria-label="Próxima">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2l5 5-5 5"/></svg>
+          </button>
+        </div>
       </div>
-      <h2>Duas formas<br/>de te <em>levar</em><br/>mais longe.</h2>
-    </div>
+      <div class="ig-overflow">
+        <div class="ig-track" id="ig-track">
 
-    <div class="svc-grid">
-      <div class="svc">
-        <div class="num">01 / Consultoria</div>
-        <h3>Produto &amp; <em>Tecnologia</em>.</h3>
-        <p class="pitch">
-          Trago mais governança e escalabilidade, de forma organizada, para o seu
-          negócio. Para empresas em transformação, scale-ups que precisam estruturar
-          sua função de produto ou áreas técnicas que querem virar verdadeiras
-          plataformas estratégicas.
-        </p>
-        <ul>
-          <li><span class="idx">→</span><span class="name">Estratégia de produto técnica</span><span class="det">Visão, OKRs e roadmap multi-anual</span></li>
-          <li><span class="idx">→</span><span class="name">Governança e operating model</span><span class="det">Discovery, prioridades, ritmo</span></li>
-          <li><span class="idx">→</span><span class="name">Estruturação de Platform Engineering</span><span class="det">IDPs, observabilidade, padrões</span></li>
-          <li><span class="idx">→</span><span class="name">Mentoria executiva para PMs e Heads</span><span class="det">CPOs, Heads, Staff PMs</span></li>
-          <li><span class="idx">→</span><span class="name">Diagnóstico organizacional</span><span class="det">Equipe, capacidade, dependências</span></li>
-        </ul>
-      </div>
+          <div class="ig-slide">
+            <blockquote class="instagram-media" data-instgrm-captioned
+              data-instgrm-permalink="https://www.instagram.com/p/DF3dgmHR881/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14">
+            </blockquote>
+          </div>
 
-      <div class="svc dark">
-        <div class="num">02 / Creator</div>
-        <h3>Palestras, <em>podcasts</em><br/>e presença de marca.</h3>
-        <p class="pitch">
-          Conteúdo executivo, técnico e humano — de keynotes em conferências
-          nacionais a participações em pautas que precisam de uma voz
-          experiente em tecnologia e produto.
-        </p>
-        <ul>
-          <li><span class="idx">→</span><span class="name">Palestras &amp; keynotes</span><span class="det">Plataforma, IA, governança, carreira</span></li>
-          <li><span class="idx">→</span><span class="name">Participação em podcasts</span><span class="det">Tech, negócio, diversidade</span></li>
-          <li><span class="idx">→</span><span class="name">Painéis e mesas redondas</span><span class="det">Eventos corporativos e abertos</span></li>
-          <li><span class="idx">→</span><span class="name">Ações em redes sociais</span><span class="det">LinkedIn, YouTube, parcerias</span></li>
-          <li><span class="idx">→</span><span class="name">Conteúdo editorial &amp; ghostwriting</span><span class="det">Para marcas e executivos</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+          <div class="ig-slide">
+            <blockquote class="instagram-media" data-instgrm-captioned
+              data-instgrm-permalink="https://www.instagram.com/p/DNG1SlWx48r/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14">
+            </blockquote>
+          </div>
 
-<div class="wrap"><div class="rule"></div></div>
+          <div class="ig-slide">
+            <blockquote class="instagram-media" data-instgrm-captioned
+              data-instgrm-permalink="https://www.instagram.com/p/DOJk64ukWE7/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14">
+            </blockquote>
+          </div>
 
-<!-- CLIENTES -->
-<section id="clientes" class="sec">
-  <div class="wrap">
-    <div class="sec-header">
-      <div class="sec-num">
-        <span>§ 05</span>
-        <span class="serif">empresas &amp; marcas</span>
-      </div>
-      <h2>De gigantes regulados<br/>a <em>marcas</em> que cresceram<br/>em alta velocidade.</h2>
-    </div>
+          <div class="ig-slide">
+            <blockquote class="instagram-media" data-instgrm-captioned
+              data-instgrm-permalink="https://www.instagram.com/p/DM-dToxRaG7/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14">
+            </blockquote>
+          </div>
 
-    <!-- EMPREGADORES -->
-    <div class="brand-group">
-      <div class="brand-group-head">
-        <span class="lbl">↳ Empresas onde fui executivo</span>
-        <span class="count">07 · 2017—2026</span>
-      </div>
-      <div class="brand-grid">
+          <div class="ig-slide">
+            <blockquote class="instagram-media" data-instgrm-captioned
+              data-instgrm-permalink="https://www.instagram.com/reel/C41TkSuOcxx/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14">
+            </blockquote>
+          </div>
 
-        <div class="brand-cell">
-          <span class="tag">Atual</span>
-          <span class="wm" style="--wm-c:#1D1D1B;">Sem<em style="color:#FCC72C;">·</em>Parar</span>
-          <span class="yr">2025 · hoje</span>
+          <div class="ig-slide">
+            <blockquote class="instagram-media" data-instgrm-captioned
+              data-instgrm-permalink="https://www.instagram.com/p/C4LYn_Lui1h/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14">
+            </blockquote>
+          </div>
+
         </div>
-
-        <div class="brand-cell">
-          <span class="tag">Consultoria · Head</span>
-          <span class="wm tight" style="--wm-c:#0F1B33;"><em style="color:#00B4FF;">∨</em>ertigo</span>
-          <span class="yr">2024 — 2025</span>
-        </div>
-
-        <div class="brand-cell">
-          <span class="tag">Principal TPM</span>
-          <span class="wm" style="--wm-c:#00B85C;">Stone<em style="color:#00B85C;">.</em></span>
-          <span class="yr">2023 — 2024</span>
-        </div>
-
-        <div class="brand-cell">
-          <span class="tag">Head of Product</span>
-          <span class="wm lower tight" style="--wm-c:#1A3E7C; font-size:clamp(28px, 3.2vw, 40px);">will<em style="color:#1A3E7C;">.</em></span>
-          <span class="yr">2022 — 2023</span>
-        </div>
-
-        <div class="brand-cell">
-          <span class="tag">Staff TPM</span>
-          <span class="wm lower" style="--wm-c:#0FA958; font-size:clamp(22px, 2.4vw, 30px);">creditas</span>
-          <span class="yr">2021 — 2022</span>
-        </div>
-
-        <div class="brand-cell">
-          <span class="tag">Senior TPM</span>
-          <span class="wm tight" style="--wm-c:#EA1D2C; font-size:clamp(26px, 3vw, 38px);">i<em style="color:#EA1D2C;">F</em>ood</span>
-          <span class="yr">2020 — 2021</span>
-        </div>
-
-        <div class="brand-cell">
-          <span class="tag">Senior Consultant</span>
-          <span class="wm lower" style="--wm-c:#1A1714; font-size:clamp(16px, 1.9vw, 22px);"><em style="color:#CC0000;">●</em> thoughtworks</span>
-          <span class="yr">2017 — 2020</span>
-        </div>
-
-        <div class="brand-cell" style="background:linear-gradient(135deg, var(--bg-2) 50%, transparent);">
-          <span class="tag">+ Corpay group</span>
-          <span class="wm caps" style="--wm-c:#013B6A;">Cor<em style="color:#FCC72C;">·</em>pay</span>
-          <span class="yr">Holding</span>
-        </div>
-
       </div>
     </div>
 
-    <!-- PARCERIAS CREATOR -->
-    <div class="brand-group">
+    <div class="brand-group" style="margin-top:56px;">
       <div class="brand-group-head">
         <span class="lbl">↳ Parcerias como creator e palestrante</span>
         <span class="count">06 · marcas que me convidaram</span>
@@ -2010,6 +1735,532 @@
 
       </div>
     </div>
+
+    <!-- PUBLICAÇÕES EM PARCERIA -->
+    <div class="ig-carousel" style="margin-top:56px;">
+      <div class="ig-carousel-head">
+        <span class="ig-carousel-label">↳ Publicações em parceria</span>
+        <div class="ig-nav">
+          <div class="ig-dots" id="bp-dots"></div>
+          <span class="ig-counter" id="bp-counter">1 / 3</span>
+          <button class="ig-btn" id="bp-prev" aria-label="Anterior">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2L4 7l5 5"/></svg>
+          </button>
+          <button class="ig-btn" id="bp-next" aria-label="Próxima">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2l5 5-5 5"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="ig-overflow">
+        <div class="ig-track" id="bp-track">
+
+          <div class="ig-slide">
+            <blockquote class="instagram-media" data-instgrm-captioned
+              data-instgrm-permalink="https://www.instagram.com/reel/DPUpHR7D97p/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14">
+            </blockquote>
+          </div>
+
+          <div class="ig-slide">
+            <blockquote class="instagram-media" data-instgrm-captioned
+              data-instgrm-permalink="https://www.instagram.com/reel/DN1gxD0Wo3K/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14">
+            </blockquote>
+          </div>
+
+          <div class="ig-slide">
+            <blockquote class="instagram-media" data-instgrm-captioned
+              data-instgrm-permalink="https://www.instagram.com/reel/DO9ffXGj8AM/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14">
+            </blockquote>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- FEEDBACK DAS MARCAS -->
+    <div class="feedback-block">
+      <div class="eyebrow">↳ O que as marcas dizem</div>
+      <div class="feedback-grid">
+
+        <div class="feedback-card">
+          <p class="feedback-quote">Izael é um comunicador nato. Traz às marcas conteúdo com naturalidade, qualidade e desenvoltura que poucos têm. Seu diferencial está em ser executivo — a comunicação aliada ao olhar estratégico transforma cada entrega em algo memorável.</p>
+          <div class="feedback-author">
+            <span class="feedback-name">Marilene Ramos</span>
+            <span class="feedback-role">Diretora Executiva · Plié Sports</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- NA MÍDIA -->
+<section id="midia" class="sec">
+  <div class="wrap">
+    <div class="sec-header">
+      <div class="sec-num">
+        <span>§ 03</span>
+        <span class="serif">NA MÍDIA</span>
+      </div>
+      <h2>Já levei tecnologia<br/>e estratégia <em>a quem</em><br/>importa ouvir.</h2>
+    </div>
+
+    <!-- MEDIA CAROUSEL -->
+    <div class="media-carousel-head">
+      <span class="media-carousel-label">↳ 12 aparições · palestras, podcasts e imprensa</span>
+      <div class="media-nav">
+        <div class="media-dots" id="media-dots"></div>
+        <span class="media-counter" id="media-counter">1 / 2</span>
+        <button class="media-btn" id="media-prev" aria-label="Página anterior">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2L4 7l5 5"/></svg>
+        </button>
+        <button class="media-btn" id="media-next" aria-label="Próxima página">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2l5 5-5 5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="media-overflow">
+      <div class="media-track" id="media-track">
+
+        <!-- PÁGINA 1 -->
+        <div class="media-page">
+          <a class="feat-card" href="https://globoplay.globo.com/v/7557264/" target="_blank">
+            <div class="feat-cover cov-tex-glow" style="--cov-bg: linear-gradient(135deg, #C9302C 0%, #1A1714 100%); --cov-fg: #F4EFE6;">
+              <span class="cov-tag">● Ao vivo · BBB</span><span class="cov-num">N.01</span>
+              <div class="cov-glyph tv"></div>
+              <div class="cov-brand">Globoplay</div>
+              <div class="cov-bottom"><span>TV aberta · prime time</span><span>2024</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Aparição · TV aberta</div>
+              <div class="title">Big Brother Brasil — Cartola da Globo</div>
+              <div class="where"><span>Globoplay · 2024</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+
+          <a class="feat-card" href="https://www.youtube.com/watch?v=Kj6WztRIHUA&t=12056s" target="_blank">
+            <div class="feat-cover cov-tex-grid" style="--cov-bg: linear-gradient(160deg, #0E1B2E 0%, #1F3554 100%); --cov-fg: #C9E4FF;">
+              <span class="cov-tag">↳ Keynote</span><span class="cov-num">N.02</span>
+              <div class="cov-brand">Platform<br/><em style="color:#62A8FF">Con</em> BR</div>
+              <div class="cov-bottom"><span>Conferência nacional</span><span>20K+ devs</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Keynote</div>
+              <div class="title">IDPs como coração da estratégia de engenharia.</div>
+              <div class="where"><span>PlatformCon Brasil</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+
+          <a class="feat-card" href="https://startups.com.br/danca-das-cadeiras/vertigo-anuncia-izael-effemberg-como-head-de-produto-e-estrategia/" target="_blank">
+            <div class="feat-cover cov-tex-stripes" style="--cov-bg: linear-gradient(135deg, #1A1714 0%, #2A1F14 100%); --cov-fg: #F39C2A;">
+              <span class="cov-tag">↳ Imprensa</span><span class="cov-num">N.03</span>
+              <div class="cov-brand">startups.<br/><em>com.br</em></div>
+              <div class="cov-bottom"><span>Dança das cadeiras</span><span>BR</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Imprensa</div>
+              <div class="title">Head de Produto e Estratégia da Vertigo.</div>
+              <div class="where"><span>startups.com.br</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+
+          <a class="feat-card" href="https://open.spotify.com/episode/29Pt6Xt09HjzOz9jTYPS3b" target="_blank">
+            <div class="feat-cover cov-tex-wave" style="--cov-bg: linear-gradient(155deg, #0E2E1E 0%, #2A6E45 100%); --cov-fg: #B7F0CD;">
+              <span class="cov-tag">↳ Podcast</span><span class="cov-num">N.04</span>
+              <div class="cov-glyph disc"></div>
+              <div class="cov-brand"><em>Sextil</em></div>
+              <div class="cov-bottom"><span>Spotify · áudio</span><span>1h32</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Podcast</div>
+              <div class="title">Sextil — carreira, afetos e relacionamentos.</div>
+              <div class="where"><span>Spotify</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+
+          <a class="feat-card" href="https://youtu.be/dg-oKx8gNwY" target="_blank">
+            <div class="feat-cover cov-tex-dots" style="--cov-bg: linear-gradient(145deg, #2A1840 0%, #5A2E8C 100%); --cov-fg: #E8D6FF;">
+              <span class="cov-tag">↳ Mesa redonda</span><span class="cov-num">N.05</span>
+              <div class="cov-brand">The Developer's<br/><em>Conference</em></div>
+              <div class="cov-bottom"><span>TDC · São Paulo</span><span>2024</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Mesa redonda</div>
+              <div class="title">IA, sustentabilidade e governança em SWE.</div>
+              <div class="where"><span>The Developer's Conference</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+
+          <a class="feat-card" href="https://www.linkedin.com/events/doc-digo-estrat-gia-comocrescer7330310609403580416/theater/" target="_blank">
+            <div class="feat-cover cov-tex-grid" style="--cov-bg: linear-gradient(120deg, #6E4BE5 0%, #1B3A8A 100%); --cov-fg: #FFFFFF;">
+              <span class="cov-tag">↳ Live colab</span><span class="cov-num">N.06</span>
+              <div class="cov-brand">Rocketseat<br/>× <em>LinkedIn</em></div>
+              <div class="cov-bottom"><span>Doc digo · carreira em tech</span><span>Live</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Live colab</div>
+              <div class="title">Como crescer em tecnologia — Rocketseat &amp; LinkedIn.</div>
+              <div class="where"><span>LinkedIn Live</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+        </div>
+
+        <!-- PÁGINA 2 -->
+        <div class="media-page">
+          <a class="feat-card" href="https://www.youtube.com/live/REBQyMIDxZ4" target="_blank">
+            <div class="feat-cover cov-tex-stripes" style="--cov-bg: linear-gradient(160deg, #3A1A1A 0%, #7C2C2C 100%); --cov-fg: #FFD1C7;">
+              <span class="cov-tag">↳ Podcast</span><span class="cov-num">N.07</span>
+              <div class="cov-glyph disc"></div>
+              <div class="cov-brand">Mediador<br/><em>Cast</em></div>
+              <div class="cov-bottom"><span>YouTube · 1h+</span><span>VeeCode</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Podcast</div>
+              <div class="title">MediadorCast — visão de produto técnico.</div>
+              <div class="where"><span>YouTube</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+
+          <a class="feat-card" href="https://youtu.be/jOGdJ6Hxp4w" target="_blank">
+            <div class="feat-cover cov-tex-grid" style="--cov-bg: linear-gradient(135deg, #0A0A0A 0%, #1F2A1A 100%); --cov-fg: #8AE08A;">
+              <span class="cov-tag">↳ Entrevista</span><span class="cov-num">N.08</span>
+              <div class="cov-brand" style="font-family:var(--mono); font-style:normal; font-size:clamp(18px, 2vw, 26px); letter-spacing:0;">$ papo_<br/>sysadmin</div>
+              <div class="cov-bottom"><span>SRE · plataforma</span><span>v.04</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Entrevista</div>
+              <div class="title">Executivo de tecnologia e produtos de plataforma.</div>
+              <div class="where"><span>Papo de SysAdmin</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+
+          <a class="feat-card" href="https://www.nic.br/videos/ver/fib10-discriminacoes-algoritmicas-impactos-na-sociedade-perspectivas-e-solucoes/" target="_blank">
+            <div class="feat-cover cov-tex-dots" style="--cov-bg: linear-gradient(155deg, #102A4A 0%, #2A5594 100%); --cov-fg: #DCE9FF;">
+              <span class="cov-tag">↳ Painel</span><span class="cov-num">N.09</span>
+              <div class="cov-brand">NIC<em>.br</em><br/>FIB 10</div>
+              <div class="cov-bottom"><span>Painel acadêmico</span><span>Brasília</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Painel</div>
+              <div class="title">Discriminações algorítmicas e impacto social.</div>
+              <div class="where"><span>NIC.br · FIB 10</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+
+          <a class="feat-card" href="https://youtu.be/rDNJghKPrck" target="_blank">
+            <div class="feat-cover cov-tex-stripes" style="--cov-bg: linear-gradient(135deg, #4A1A2E 0%, #8C2A4A 100%); --cov-fg: #FFD8E2;">
+              <span class="cov-tag">↳ Entrevista</span><span class="cov-num">N.10</span>
+              <div class="cov-brand">Papo<br/>Metrópole · <em>UFRN</em></div>
+              <div class="cov-bottom"><span>Representatividade</span><span>Natal/RN</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Entrevista</div>
+              <div class="title">Representatividade LGBTQIAPN+ no mercado de tech.</div>
+              <div class="where"><span>Papo Metrópole · UFRN</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+
+          <a class="feat-card" href="https://www.youtube.com/live/Y3BfHYySV-k" target="_blank">
+            <div class="feat-cover cov-tex-glow" style="--cov-bg: linear-gradient(140deg, #B5704A 0%, #F39C2A 100%); --cov-fg: #1A1714;">
+              <span class="cov-tag">↳ Talk</span><span class="cov-num">N.11</span>
+              <div class="cov-brand">Startup<em>Days</em></div>
+              <div class="cov-bottom"><span>Empreendedorismo · ideação</span><span>BR</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Talk</div>
+              <div class="title">Como idear produtos digitais.</div>
+              <div class="where"><span>StartupDays</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+
+          <a class="feat-card" href="https://youtu.be/OTMug59Mnpg" target="_blank">
+            <div class="feat-cover cov-tex-grid" style="--cov-bg: linear-gradient(135deg, #0E1414 0%, #1F3C3C 100%); --cov-fg: #7FE7E2;">
+              <span class="cov-tag">↳ Talk técnica</span><span class="cov-num">N.12</span>
+              <div class="cov-glyph square"></div>
+              <div class="cov-brand">DevOps<br/><em>Days</em> BH</div>
+              <div class="cov-bottom"><span>Observabilidade · SRE</span><span>2019</span></div>
+            </div>
+            <div class="feat-body">
+              <div class="kind">↳ Talk técnica</div>
+              <div class="title">Observabilidade em produtos digitais.</div>
+              <div class="where"><span>DevOps Days BH</span><span class="arrow">↗</span></div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span>Globoplay</span><span>startups.com.br</span><span>PlatformCon Brasil</span>
+        <span>The Developer's Conference</span><span>Rocketseat</span><span>NIC.br</span>
+        <span>StartupDays</span><span>DevOps Days</span><span>iFood Tech Talks</span>
+        <span>UFRN · Papo Metrópole</span><span>Spotify · Sextil</span><span>MediadorCast</span>
+        <span>Papo de SysAdmin</span>
+        <span>Globoplay</span><span>startups.com.br</span><span>PlatformCon Brasil</span>
+        <span>The Developer's Conference</span><span>Rocketseat</span><span>NIC.br</span>
+        <span>StartupDays</span><span>DevOps Days</span><span>iFood Tech Talks</span>
+        <span>UFRN · Papo Metrópole</span><span>Spotify · Sextil</span><span>MediadorCast</span>
+        <span>Papo de SysAdmin</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<section id="executivo" class="sec">
+  <div class="wrap">
+    <div class="sec-header">
+      <div class="sec-num">
+        <span>§ 04</span>
+        <span class="serif">histórico executivo</span>
+      </div>
+      <h2>Quinze anos<br/>construindo <em>operações</em><br/>de alto rendimento.</h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-row">
+        <div class="tl-when">2025 — Hoje</div>
+        <div class="tl-role">
+          <div class="role-title">Senior Group PM — Technical</div>
+          <div class="role-company"><span class="dot"></span>Sem Parar / Corpay · São Paulo</div>
+          <span class="tl-badge" style="--tl-brand:#1D1D1B;">Sem<em style="color:#FCC72C;">·</em>Parar <em style="font-size:0.55em; letter-spacing:0.06em; font-style:normal; color:var(--ink-3); font-family:var(--sans); font-weight:500; vertical-align:middle;">/ Corpay</em></span>
+          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
+            Lidero tribo de ~50 pessoas e 5 PMs sêniores em produtos de
+            plataforma — pagamentos, conectividade, autenticação, automação
+            operacional e enriquecimento de dados.
+          </p>
+        </div>
+        <div class="tl-impact">
+          <div class="impact-cell">
+            <div class="num">—<em>20</em>%</div>
+            <div class="desc">Custo de transação de cartão de crédito</div>
+          </div>
+          <div class="impact-cell">
+            <div class="num">—<em>80</em>%</div>
+            <div class="desc">Turnover do time, em um ano</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-when">2024 — 2025</div>
+        <div class="tl-role">
+          <div class="role-title">Principal Consultant & Head of Product</div>
+          <div class="role-company"><span class="dot"></span>Vertigo / VeeCode · São Paulo</div>
+          <span class="tl-badge" style="--tl-brand:#0F1B33;"><em style="color:#00B4FF; font-style:normal;">∨</em>ertigo</span>
+          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
+            Dirigi programas estratégicos para P&amp;G, Itaú, Banco Master, Sankhya e
+            Credsystem. Fundei a área de Technical Delivery Management da Vertigo.
+          </p>
+        </div>
+        <div class="tl-impact">
+          <div class="impact-cell">
+            <div class="num">—<em>40</em>%</div>
+            <div class="desc">Lead time de entrega em programas enterprise</div>
+          </div>
+          <div class="impact-cell">
+            <div class="num">+<em>60</em>%</div>
+            <div class="desc">Qualidade de release e uptime de plataforma</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-when">2023 — 2024</div>
+        <div class="tl-role">
+          <div class="role-title">Principal Technical PM</div>
+          <div class="role-company"><span class="dot"></span>Stone · São Paulo</div>
+          <span class="tl-badge" style="--tl-brand:#00B85C;">Stone<em style="color:#00B85C; font-style:normal;">.</em></span>
+          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
+            Estratégia, arquitetura e roadmap da plataforma de Data Engineering
+            dentro da Foundation Platform da Stone.
+          </p>
+        </div>
+        <div class="tl-impact">
+          <div class="impact-cell">
+            <div class="num">—<em>30</em>%</div>
+            <div class="desc">Violações de SLA na plataforma</div>
+          </div>
+          <div class="impact-cell">
+            <div class="num"><em>↑</em></div>
+            <div class="desc">Adoção self-service de tooling interno</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-when">2022 — 2023</div>
+        <div class="tl-role">
+          <div class="role-title">Head of Product & Program Mgmt — Platform</div>
+          <div class="role-company"><span class="dot"></span>WillBank · Remoto</div>
+          <span class="tl-badge lower" style="--tl-brand:#1A3E7C;">will<em style="color:#1A3E7C; font-style:normal;">.</em></span>
+          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
+            Criei a função inaugural de TPM do WillBank — 6 reportes diretos,
+            53 indiretos. Visão, OKRs e roadmap multi-anual para platform
+            engineering.
+          </p>
+        </div>
+        <div class="tl-impact">
+          <div class="impact-cell">
+            <div class="num"><em>53</em></div>
+            <div class="desc">Reportes indiretos sob a operação que estruturei</div>
+          </div>
+          <div class="impact-cell">
+            <div class="num"><em>5</em>BU</div>
+            <div class="desc">Unidades de negócio com entregas dependentes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-when">2021 — 2022</div>
+        <div class="tl-role">
+          <div class="role-title">Staff Technical Program Manager</div>
+          <div class="role-company"><span class="dot"></span>Creditas · Brasil, México, Espanha</div>
+          <span class="tl-badge lower" style="--tl-brand:#0FA958; font-size:clamp(16px, 1.8vw, 24px);">creditas</span>
+          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
+            Tribo de Mobile Platform, suportando 9 tribos em 3 países.
+            Redesign de arquitetura mobile.
+          </p>
+        </div>
+        <div class="tl-impact">
+          <div class="impact-cell">
+            <div class="num"><em>2,1 → 4,2</em></div>
+            <div class="desc">Rating do app nas lojas</div>
+          </div>
+          <div class="impact-cell">
+            <div class="num">R$<em>1</em>,<em>5</em>M</div>
+            <div class="desc">Economizados em cobrança atrasada</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-when">2020 — 2021</div>
+        <div class="tl-role">
+          <div class="role-title">Senior Technical PM — Platform Engineering</div>
+          <div class="role-company"><span class="dot"></span>iFood · Brasil, México, Colômbia</div>
+          <span class="tl-badge" style="--tl-brand:#EA1D2C;">i<em style="color:#EA1D2C; font-style:normal;">F</em>ood</span>
+          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
+            Padrões de engenharia e resiliência das jornadas críticas das
+            tribos Consumer, Logistics e Restaurants.
+          </p>
+        </div>
+        <div class="tl-impact">
+          <div class="impact-cell">
+            <div class="num">+<em>42</em>%</div>
+            <div class="desc">Uptime em jornadas críticas (9M+ pedidos/mês)</div>
+          </div>
+          <div class="impact-cell">
+            <div class="num">—<em>23</em>%</div>
+            <div class="desc">MTTR em resposta a incidentes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-when">2017 — 2020</div>
+        <div class="tl-role">
+          <div class="role-title">Senior Consultant — Reliability SWE</div>
+          <div class="role-company"><span class="dot"></span>ThoughtWorks · Global</div>
+          <span class="tl-badge lower" style="--tl-brand:#1A1714; font-size:clamp(14px, 1.6vw, 20px);"><em style="color:#CC0000; font-style:normal;">●</em> thoughtworks</span>
+          <p style="margin-top:14px; font-size:13px; color:var(--ink-2); line-height:1.55; max-width:380px;">
+            Time global (US, UK, BR, CN, IN) construindo a primeira plataforma
+            de Automated Delivery Infrastructure da ThoughtWorks.
+          </p>
+        </div>
+        <div class="tl-impact">
+          <div class="impact-cell">
+            <div class="num">—<em>70</em>%</div>
+            <div class="desc">Custo de infraestrutura AWS interna</div>
+          </div>
+          <div class="impact-cell">
+            <div class="num"><em>5</em> países</div>
+            <div class="desc">Distribuição do time que liderei tecnicamente</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tl-summary">
+      <div class="tl-card">
+        <div class="label">§ Stack de atuação</div>
+        <div class="lead">Plataforma, fintech, infra, conectividade e governança técnica.</div>
+      </div>
+      <div class="tl-card">
+        <div class="label">§ Onde brilho</div>
+        <div class="lead">Decisões em ambiguidade, alinhamento de stakeholders sêniores, escala de times.</div>
+      </div>
+      <div class="tl-card">
+        <div class="label">§ Reconhecimentos</div>
+        <div class="lead">2º lugar no Global Platinion Hackathon · BCG, 2023. Mentoria CPO IFTL.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="sec">
+  <div class="wrap">
+    <div class="sec-header">
+      <div class="sec-num">
+        <span>§ 05</span>
+        <span class="serif">como podemos trabalhar</span>
+      </div>
+      <h2>Duas formas<br/>de te <em>levar</em><br/>mais longe.</h2>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="num">01 / Consultoria</div>
+        <h3>Produto &amp; <em>Tecnologia</em>.</h3>
+        <p class="pitch">
+          Trago mais governança e escalabilidade, de forma organizada, para o seu
+          negócio. Para empresas em transformação, scale-ups que precisam estruturar
+          sua função de produto ou áreas técnicas que querem virar verdadeiras
+          plataformas estratégicas.
+        </p>
+        <ul>
+          <li><span class="idx">→</span><span class="name">Estratégia de produto técnica</span><span class="det">Visão, OKRs e roadmap multi-anual</span></li>
+          <li><span class="idx">→</span><span class="name">Governança e operating model</span><span class="det">Discovery, prioridades, ritmo</span></li>
+          <li><span class="idx">→</span><span class="name">Estruturação de Platform Engineering</span><span class="det">IDPs, observabilidade, padrões</span></li>
+          <li><span class="idx">→</span><span class="name">Mentoria executiva para PMs e Heads</span><span class="det">CPOs, Heads, Staff PMs</span></li>
+          <li><span class="idx">→</span><span class="name">Diagnóstico organizacional</span><span class="det">Equipe, capacidade, dependências</span></li>
+        </ul>
+      </div>
+
+      <div class="svc dark">
+        <div class="num">02 / Creator</div>
+        <h3>Palestras, <em>podcasts</em><br/>e presença de marca.</h3>
+        <p class="pitch">
+          Conteúdo executivo, técnico e humano — de keynotes em conferências
+          nacionais a participações em pautas que precisam de uma voz
+          experiente em tecnologia e produto.
+        </p>
+        <ul>
+          <li><span class="idx">→</span><span class="name">Palestras &amp; keynotes</span><span class="det">Plataforma, IA, governança, carreira</span></li>
+          <li><span class="idx">→</span><span class="name">Participação em podcasts</span><span class="det">Tech, negócio, diversidade</span></li>
+          <li><span class="idx">→</span><span class="name">Painéis e mesas redondas</span><span class="det">Eventos corporativos e abertos</span></li>
+          <li><span class="idx">→</span><span class="name">Ações em redes sociais</span><span class="det">LinkedIn, YouTube, parcerias</span></li>
+          <li><span class="idx">→</span><span class="name">Conteúdo editorial &amp; ghostwriting</span><span class="det">Para marcas e executivos</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2023,7 +2274,7 @@
       de escala — me chame.
     </h2>
     <div class="ctas">
-      <a href="mailto:contato.izaeleffemberg@gmail.com" class="btn primary">contato.izaeleffemberg@gmail.com <span class="arrow">↗</span></a>
+      <a href="mailto:contato.izaeleffemberg@gmail.com" class="btn primary">E-mail <span class="arrow">↗</span></a>
       <a href="https://wa.me/5511983639080" target="_blank" class="btn ghost">WhatsApp<span class="arrow">↗</span></a>
       <a href="https://www.linkedin.com/in/IzaelEffemberg/" target="_blank" class="btn ghost">LinkedIn <span class="arrow">↗</span></a>
     </div>
@@ -2100,7 +2351,174 @@
   document.querySelectorAll('.sec, .hero, .cta-block').forEach(el => {
     el.classList.add('appear'); io.observe(el);
   });
+
+  /* --- Brand Partnerships Carousel --- */
+  (function () {
+    const track   = document.getElementById('bp-track');
+    const dotsEl  = document.getElementById('bp-dots');
+    const counter = document.getElementById('bp-counter');
+    const btnPrev = document.getElementById('bp-prev');
+    const btnNext = document.getElementById('bp-next');
+    if (!track) return;
+
+    const slides = Array.from(track.children);
+    const total  = slides.length;
+    const GAP    = 24;
+    let current  = 0;
+
+    function visibleCount() {
+      if (window.innerWidth >= 1200) return 3;
+      if (window.innerWidth >= 900)  return 2;
+      return 1;
+    }
+
+    function maxIdx() { return Math.max(0, total - visibleCount()); }
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      for (let i = 0; i <= maxIdx(); i++) {
+        const d = document.createElement('button');
+        d.className = 'ig-dot' + (i === current ? ' active' : '');
+        d.setAttribute('aria-label', 'Post ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, maxIdx()));
+      const slideW = slides[0].offsetWidth;
+      track.style.transform = `translateX(-${current * (slideW + GAP)}px)`;
+      dotsEl.querySelectorAll('.ig-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current));
+      counter.textContent = (current + 1) + ' / ' + total;
+      btnPrev.disabled = current === 0;
+      btnNext.disabled = current >= maxIdx();
+    }
+
+    btnPrev.addEventListener('click', () => goTo(current - 1));
+    btnNext.addEventListener('click', () => goTo(current + 1));
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { buildDots(); goTo(Math.min(current, maxIdx())); }, 120);
+    });
+
+    buildDots();
+    goTo(0);
+  })();
+
+  /* --- Media Carousel --- */
+  (function () {
+    const track   = document.getElementById('media-track');
+    const dotsEl  = document.getElementById('media-dots');
+    const counter = document.getElementById('media-counter');
+    const btnPrev = document.getElementById('media-prev');
+    const btnNext = document.getElementById('media-next');
+    if (!track) return;
+
+    const pages = Array.from(track.children);
+    const total = pages.length;
+    let current = 0;
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('button');
+        d.className = 'media-dot' + (i === current ? ' active' : '');
+        d.setAttribute('aria-label', 'Página ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, total - 1));
+      track.style.transform = `translateX(-${current * pages[0].offsetWidth}px)`;
+      dotsEl.querySelectorAll('.media-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current));
+      counter.textContent = (current + 1) + ' / ' + total;
+      btnPrev.disabled = current === 0;
+      btnNext.disabled = current >= total - 1;
+    }
+
+    btnPrev.addEventListener('click', () => goTo(current - 1));
+    btnNext.addEventListener('click', () => goTo(current + 1));
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => goTo(current), 120);
+    });
+
+    buildDots();
+    goTo(0);
+  })();
+
+  /* --- Instagram Carousel --- */
+  (function () {
+    const track   = document.getElementById('ig-track');
+    const dotsEl  = document.getElementById('ig-dots');
+    const counter = document.getElementById('ig-counter');
+    const btnPrev = document.getElementById('ig-prev');
+    const btnNext = document.getElementById('ig-next');
+    if (!track) return;
+
+    const slides = Array.from(track.children);
+    const total  = slides.length;
+    const GAP    = 24;
+    let current  = 0;
+
+    function visibleCount() {
+      if (window.innerWidth >= 1200) return 3;
+      if (window.innerWidth >= 900)  return 2;
+      return 1;
+    }
+
+    function maxIdx() { return Math.max(0, total - visibleCount()); }
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      const steps = maxIdx() + 1;
+      for (let i = 0; i < steps; i++) {
+        const d = document.createElement('button');
+        d.className = 'ig-dot' + (i === current ? ' active' : '');
+        d.setAttribute('aria-label', 'Post ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, maxIdx()));
+
+      /* Pixel-based: measure actual slide width at runtime */
+      const slideW = slides[0].offsetWidth;
+      track.style.transform = `translateX(-${current * (slideW + GAP)}px)`;
+
+      dotsEl.querySelectorAll('.ig-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current));
+
+      counter.textContent = (current + 1) + ' / ' + total;
+      btnPrev.disabled = current === 0;
+      btnNext.disabled = current >= maxIdx();
+    }
+
+    btnPrev.addEventListener('click', () => goTo(current - 1));
+    btnNext.addEventListener('click', () => goTo(current + 1));
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { buildDots(); goTo(Math.min(current, maxIdx())); }, 120);
+    });
+
+    buildDots();
+    goTo(0);
+  })();
 </script>
 
+<script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
