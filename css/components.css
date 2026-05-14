@@ -581,7 +581,7 @@
 .feedback-block > .eyebrow { margin-bottom: 28px; }
 .feedback-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 .feedback-card {
