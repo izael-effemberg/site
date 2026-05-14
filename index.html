@@ -71,14 +71,11 @@
   })();
 </script>
 
-<!-- Lógica dos carrosséis (deve ser carregado ANTES do loader) -->
+<!-- Carrosséis — carregado antes do loader (expõe window.initCarousels) -->
 <script src="js/main.js" defer></script>
 
-<!-- Loader de seções (carrega seções e chama initCarousels) -->
+<!-- Loader: injeta seções, inicializa página e embed.js do Instagram -->
 <script src="js/loader.js" defer></script>
-
-<!-- Instagram embed.js (async — re-processado pelo loader se necessário) -->
-<script async src="https://www.instagram.com/embed.js"></script>
 
 </body>
 </html>

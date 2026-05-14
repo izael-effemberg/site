@@ -31,12 +31,26 @@ async function loadSections() {
     return;
   }
 
-  // Inicializar tudo após seções estarem no DOM
-  initPage();
+  // Duplo rAF garante que o browser fez ao menos um layout pass
+  // antes de medir offsetWidth nos carrosséis
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      initPage();
+      loadInstagramEmbed();
+    });
+  });
+}
 
-  // Re-processar embeds do Instagram se o script já tiver carregado
+function loadInstagramEmbed() {
   if (window.instgrm) {
+    // embed.js já carregou — re-processa os blockquotes recém inseridos
     window.instgrm.Widgets.load();
+  } else {
+    // embed.js ainda não carregou — injeta agora que as seções estão no DOM
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.instagram.com/embed.js';
+    document.body.appendChild(s);
   }
 }
 
