@@ -1,18 +1,6 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
-
-  /* --- Scroll reveal --- */
-  const io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) e.target.classList.add('in');
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.sec, .hero, .cta-block').forEach(function (el) {
-    el.classList.add('appear');
-    io.observe(el);
-  });
+window.initCarousels = function () {
 
   /* --- Brand Partnerships Carousel --- */
   (function () {
@@ -189,4 +177,4 @@ document.addEventListener('DOMContentLoaded', function () {
     goTo(0);
   }());
 
-});
+};
