@@ -177,4 +177,168 @@ window.initCarousels = function () {
     goTo(0);
   }());
 
+  /* --- Media Content Carousel (mc) --- */
+  (function () {
+    var track    = document.getElementById('mc-track');
+    var overflow = document.getElementById('mc-overflow');
+    var dotsEl   = document.getElementById('mc-dots');
+    var counter  = document.getElementById('mc-counter');
+    var btnPrev  = document.getElementById('mc-prev');
+    var btnNext  = document.getElementById('mc-next');
+    if (!track || !overflow) return;
+
+    var slides     = Array.from(track.querySelectorAll('.mc-slide'));
+    var total      = slides.length;
+    var current    = 0;
+    var GAP        = 24;
+    var resizeTimer;
+
+    if (!total) return;
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      for (var i = 0; i < total; i++) {
+        var d = document.createElement('button');
+        d.className = 'mc-dot' + (i === current ? ' active' : '');
+        d.setAttribute('aria-label', 'Item ' + (i + 1));
+        (function (idx) { d.addEventListener('click', function () { goTo(idx); }); }(i));
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, total - 1));
+      var slideW = slides[0].offsetWidth;
+      track.style.transform = 'translateX(-' + (current * (slideW + GAP)) + 'px)';
+      dotsEl.querySelectorAll('.mc-dot').forEach(function (d, i) {
+        d.classList.toggle('active', i === current);
+      });
+      if (counter) counter.textContent = (current + 1) + ' / ' + total;
+      if (btnPrev) btnPrev.disabled = current === 0;
+      if (btnNext) btnNext.disabled = current >= total - 1;
+    }
+
+    if (btnPrev) btnPrev.addEventListener('click', function () { goTo(current - 1); });
+    if (btnNext) btnNext.addEventListener('click', function () { goTo(current + 1); });
+
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { goTo(current); }, 120);
+    });
+
+    buildDots();
+    goTo(0);
+  }());
+
+  /* --- Content Carousel --- */
+  (function () {
+    var track    = document.getElementById('cc-track');
+    var overflow = document.getElementById('cc-overflow');
+    var dotsEl   = document.getElementById('cc-dots');
+    var counter  = document.getElementById('cc-counter');
+    var btnPrev  = document.getElementById('cc-prev');
+    var btnNext  = document.getElementById('cc-next');
+    if (!track || !overflow) return;
+
+    var slides     = Array.from(track.children);
+    var total      = slides.length;
+    var current    = 0;
+    var resizeTimer;
+
+    if (!total) return;
+
+    function setSizes() {
+      var w = overflow.offsetWidth;
+      slides.forEach(function (s) { s.style.width = w + 'px'; });
+    }
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      for (var i = 0; i < total; i++) {
+        var d = document.createElement('button');
+        d.className = 'cc-dot' + (i === current ? ' active' : '');
+        d.setAttribute('aria-label', 'Conteúdo ' + (i + 1));
+        (function (idx) { d.addEventListener('click', function () { goTo(idx); }); }(i));
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, total - 1));
+      track.style.transform = 'translateX(-' + (current * overflow.offsetWidth) + 'px)';
+      dotsEl.querySelectorAll('.cc-dot').forEach(function (d, i) {
+        d.classList.toggle('active', i === current);
+      });
+      if (counter) counter.textContent = (current + 1) + ' / ' + total;
+      if (btnPrev) btnPrev.disabled = current === 0;
+      if (btnNext) btnNext.disabled = current >= total - 1;
+    }
+
+    if (btnPrev) btnPrev.addEventListener('click', function () { goTo(current - 1); });
+    if (btnNext) btnNext.addEventListener('click', function () { goTo(current + 1); });
+
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { setSizes(); goTo(current); }, 120);
+    });
+
+    setSizes();
+    buildDots();
+    goTo(0);
+  }());
+
+  /* --- Audience Carousel --- */
+  (function () {
+    var tabs     = Array.from(document.querySelectorAll('.aud-tab'));
+    var track    = document.getElementById('aud-track');
+    var overflow = document.getElementById('aud-overflow');
+    if (!track || !tabs.length || !overflow) return;
+
+    var slides     = Array.from(track.children);
+    var current    = 0;
+    var heights    = [];
+    var resizeTimer;
+
+    function setSizes() {
+      var w = overflow.offsetWidth;
+      slides.forEach(function (s) { s.style.width = w + 'px'; });
+      /* With align-items:flex-start each slide has its natural height — measure now */
+      heights = slides.map(function (s) { return s.offsetHeight; });
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, tabs.length - 1));
+      track.style.transform = 'translateX(-' + (current * overflow.offsetWidth) + 'px)';
+      tabs.forEach(function (tab, i) { tab.classList.toggle('active', i === current); });
+      if (heights[current]) overflow.style.height = heights[current] + 'px';
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { goTo(i); });
+    });
+
+    /* Touch swipe */
+    var startX = 0;
+    overflow.addEventListener('touchstart', function (e) {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+    overflow.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 48) goTo(current + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { setSizes(); goTo(current); }, 120);
+    });
+
+    setSizes();
+    /* Set initial height without transition, then enable for subsequent clicks */
+    if (heights[0]) overflow.style.height = heights[0] + 'px';
+    requestAnimationFrame(function () {
+      overflow.style.transition = 'height 0.42s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+    goTo(0);
+  }());
+
 };
