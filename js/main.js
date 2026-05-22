@@ -177,6 +177,61 @@ window.initCarousels = function () {
     goTo(0);
   }());
 
+  /* --- LinkedIn posts carousel (rep-li) --- */
+  (function () {
+    var track    = document.getElementById('rep-li-track');
+    var overflow = document.getElementById('rep-li-overflow');
+    var dotsEl   = document.getElementById('rep-li-dots');
+    var counter  = document.getElementById('rep-li-counter');
+    var btnPrev  = document.getElementById('rep-li-prev');
+    var btnNext  = document.getElementById('rep-li-next');
+    if (!track || !overflow) return;
+
+    var pages      = Array.from(track.children);
+    var total      = pages.length;
+    var current    = 0;
+    var resizeTimer;
+
+    function setSizes() {
+      var w = overflow.offsetWidth;
+      pages.forEach(function (p) { p.style.width = w + 'px'; });
+    }
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      for (var i = 0; i < total; i++) {
+        var d = document.createElement('button');
+        d.className = 'cc-dot' + (i === current ? ' active' : '');
+        d.setAttribute('aria-label', 'Página ' + (i + 1));
+        (function (idx) { d.addEventListener('click', function () { goTo(idx); }); }(i));
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, total - 1));
+      track.style.transform = 'translateX(-' + (current * overflow.offsetWidth) + 'px)';
+      dotsEl.querySelectorAll('.cc-dot').forEach(function (d, i) {
+        d.classList.toggle('active', i === current);
+      });
+      if (counter) counter.textContent = (current + 1) + ' / ' + total;
+      if (btnPrev) btnPrev.disabled = current === 0;
+      if (btnNext) btnNext.disabled = current >= total - 1;
+    }
+
+    if (btnPrev) btnPrev.addEventListener('click', function () { goTo(current - 1); });
+    if (btnNext) btnNext.addEventListener('click', function () { goTo(current + 1); });
+
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { setSizes(); goTo(current); }, 120);
+    });
+
+    setSizes();
+    buildDots();
+    goTo(0);
+  }());
+
   /* --- Media Content Carousel (mc) --- */
   (function () {
     var track    = document.getElementById('mc-track');

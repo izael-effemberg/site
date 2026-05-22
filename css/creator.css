@@ -932,28 +932,141 @@ nav.top .links a.nav-kit:hover {
 .svc-block__cta:hover { opacity: 0.55; }
 
 /* ---- Parcerias de marca ---- */
-.parc-brands {
+.parc-brands-band { margin-bottom: 64px; }
+.parc-brands-band__head {
   display: flex;
-  flex-direction: column;
-}
-.parc-brands .brand-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-@media (max-width: 900px) {
-  .parc-brands .brand-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-.parc-testimonials { margin-top: 56px; }
-
-.parc-feedback-grid {
-  grid-template-columns: repeat(4, 1fr) !important;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
   gap: 16px;
 }
-@media (max-width: 1100px) {
-  .parc-feedback-grid { grid-template-columns: repeat(2, 1fr) !important; }
+.parc-brands-band__cta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  transition: color 0.18s;
+  white-space: nowrap;
 }
-@media (max-width: 600px) {
-  .parc-feedback-grid { grid-template-columns: 1fr !important; }
+.parc-brands-band__cta:hover { color: var(--ink); }
+.parc-brand-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .parc-brand-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---- Parcerias — depoimento destaque ---- */
+.parc-quotes { border-top: 1px solid var(--line); padding-top: 56px; }
+
+.parc-featured {
+  background: var(--ink);
+  border-radius: 6px;
+  padding: 56px 64px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+@media (max-width: 900px) {
+  .parc-featured { grid-template-columns: 1fr; padding: 40px 36px; gap: 36px; }
+}
+.parc-featured__quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 30px);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--bg);
+  position: relative;
+}
+.parc-featured__quote::before {
+  content: '\201C';
+  font-size: 5em;
+  line-height: 0.6;
+  color: oklch(0.78 0.14 55);
+  display: block;
+  margin-bottom: 12px;
+  font-style: normal;
+}
+.parc-featured__author {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.parc-featured__brand {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: oklch(0.78 0.14 55);
+}
+.parc-featured__name {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2vw, 26px);
+  color: var(--bg);
+  letter-spacing: -0.01em;
+}
+.parc-featured__role {
+  font-size: 13px;
+  color: color-mix(in oklch, var(--bg) 45%, transparent);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---- Parcerias — 3 cards compactos ---- */
+.parc-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) { .parc-cards { grid-template-columns: 1fr; } }
+
+.parc-card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 28px 28px 24px;
+  background: var(--bg-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.parc-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+.parc-card::before {
+  content: '\201C';
+  font-family: var(--serif);
+  font-size: 48px;
+  line-height: 0.75;
+  color: var(--accent);
+  opacity: 0.4;
+  position: absolute;
+  top: 18px; left: 22px;
+  pointer-events: none;
+}
+.parc-card__quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.6;
+  color: var(--ink);
+  padding-top: 24px;
+  margin: 0;
+}
+.parc-card__author { display: flex; flex-direction: column; gap: 3px; }
+.parc-card__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.parc-card__role {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
 }
 
 /* ---- Feedback grid 2 colunas ---- */
@@ -1073,30 +1186,188 @@ nav.top .links a.nav-kit:hover {
   to   { opacity: 1; }
 }
 
-/* ---- Repertório layout ---- */
-.rep-layout {
+/* ---- Repertório intro ---- */
+.rep-intro {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 64px;
+  grid-template-columns: 260px 1fr;
+  gap: 56px;
   align-items: start;
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
-@media (max-width: 900px) {
-  .rep-layout { grid-template-columns: 1fr; gap: 40px; }
-  .rep-layout .portrait { max-width: 400px; }
+@media (max-width: 900px) { .rep-intro { grid-template-columns: 1fr; gap: 40px; } }
+
+.rep-intro__stats {
+  background: var(--ink);
+  border-radius: 6px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.rep-stat__num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: oklch(0.78 0.14 55);
+}
+.rep-stat__num em { font-style: normal; font-size: 0.55em; color: oklch(0.78 0.14 55); }
+.rep-stat__lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--bg) 40%, transparent);
+  margin-top: 8px;
+  line-height: 1.5;
 }
 
-.rep-layout__text {
+.rep-intro__text {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding-top: 4px;
 }
-.rep-layout__text p {
+.rep-intro__text p {
   font-size: 15px;
   color: var(--ink-2);
   line-height: 1.7;
   text-align: justify;
   margin: 0;
+}
+
+/* ---- Repertório empresas ---- */
+.rep-companies-section { margin-bottom: 56px; }
+
+/* ---- Repertório LinkedIn grid ---- */
+.rep-li-section {
+  border-top: 1px solid var(--line);
+  padding-top: 48px;
+}
+.rep-li-section__head { margin-bottom: 32px; }
+.rep-li-section__sub {
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 0;
+}
+.rep-li-overflow { overflow: hidden; }
+.rep-li-track {
+  display: flex;
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.rep-li-page {
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 768px) { .rep-li-page { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .rep-li-page { grid-template-columns: 1fr; } }
+
+.rep-li-card {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.rep-li-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+.rep-li-card iframe { display: block; width: 100%; border: none; }
+
+/* ---- Repertório LinkedIn section ---- */
+.rep-linkedin {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+.rep-linkedin__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.rep-linkedin__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+.rep-linkedin__sub {
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 400px;
+}
+.rep-car__slide {
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ---- Repertório embed carousel ---- */
+.rep-car { align-self: start; }
+.rep-car__nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.rep-car__dots { display: flex; gap: 6px; }
+.rep-car__dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: var(--line);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.rep-car__dot.active { background: var(--ink); transform: scale(1.3); }
+.rep-car__counter { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--ink-3); }
+.rep-car__btn {
+  width: 30px; height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-2);
+  transition: background 0.15s, color 0.15s;
+}
+.rep-car__btn:hover { background: var(--ink); color: var(--bg); }
+.rep-car__btn:disabled { opacity: 0.3; cursor: default; }
+.rep-car__overflow { overflow: hidden; }
+.rep-car__track { display: flex; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+.rep-car__slide { flex-shrink: 0; width: 100%; }
+
+.rep-ig-embed {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  max-width: 500px;
+  margin: 0 auto;
+}
+.rep-ig-embed .instagram-media {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-radius: 6px !important;
+}
+.rep-ig-embed iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
 }
 
 /* video inside .portrait */

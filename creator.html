@@ -43,6 +43,10 @@
 
 <!-- ═══ 1. HERO ═══ -->
 <section id="top" class="hero">
+  <div class="hero-bg-gif" aria-hidden="true">
+    <img class="hero-bg-gif__media" src="assets/talk-iza.GIF" alt="">
+    <div class="hero-bg-gif__overlay"></div>
+  </div>
   <div class="wrap">
     <div class="creator-badge"><span class="pulse"></span>Executive Tech Creator</div>
     <div class="hero-grid">
@@ -128,22 +132,31 @@
       </div>
       <h2>Autoridade que vem<br/>de quem <em>viveu</em><br/>o mercado.</h2>
     </div>
-    <div class="rep-layout">
-      <div class="rep-layout__text">
+    <!-- Intro: stats + bio -->
+    <div class="rep-intro">
+      <div class="rep-intro__stats">
+        <div class="rep-stat">
+          <div class="rep-stat__num">14<em>+</em></div>
+          <div class="rep-stat__lbl">anos liderando<br/>produto e tech</div>
+        </div>
+        <div class="rep-stat">
+          <div class="rep-stat__num">8</div>
+          <div class="rep-stat__lbl">empresas no<br/>repertório</div>
+        </div>
+        <div class="rep-stat">
+          <div class="rep-stat__num">200<em>+</em></div>
+          <div class="rep-stat__lbl">profissionais<br/>liderados</div>
+        </div>
+      </div>
+      <div class="rep-intro__text">
         <p>Antes de construir audiência, Izael construiu repertório em empresas como ThoughtWorks, iFood, Creditas, WillBank, Stone, Vertigo, VeeCode e Sem Parar. Há mais de 10 anos, compartilha sua experiência com a comunidade tech por meio de mentorias, palestras, eventos, conteúdos e trocas com profissionais de tecnologia, produto e negócios.</p>
         <p>Nos últimos dois anos, sua comunicação extrapolou a bolha técnica e passou a alcançar também pessoas interessadas em carreira, liderança, inteligência artificial, negócios e lifestyle executivo. Esse movimento ampliou sua audiência nas redes e fortaleceu seu posicionamento como uma voz que conecta profundidade técnica, visão estratégica e repertório real de mercado.</p>
         <p>Essa experiência em tecnologia, fintechs, plataformas digitais e consultorias estratégicas dá profundidade ao seu conteúdo e diferencia sua comunicação de creators puramente informativos.</p>
       </div>
-      <div class="portrait">
-        <video autoplay loop muted playsinline>
-          <source src="assets/video-pg-principal.MP4" type="video/mp4">
-        </video>
-        <div class="label">Executive Tech Creator · 2026</div>
-        <div class="meta"><span>São Paulo, BR</span><span>—02—</span></div>
-      </div>
     </div>
 
-    <div class="rep-companies-wrap">
+    <!-- Empresas -->
+    <div class="rep-companies-section">
       <div class="eyebrow" style="margin-bottom:20px;">↳ Repertório construído em</div>
       <div class="pro-companies-grid">
         <div class="pro-company-cell">
@@ -177,6 +190,63 @@
         <div class="pro-company-cell">
           <div class="pro-company-name" style="font-size:clamp(13px,1.4vw,17px);">Sem Parar / Corpay</div>
           <div class="pro-company-category">Plataforma digital</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LinkedIn posts -->
+    <div class="rep-li-section">
+      <div class="cc-head">
+        <span class="cc-label">↳ LinkedIn — conteúdo em destaque</span>
+        <div class="cc-nav">
+          <div class="cc-dots" id="rep-li-dots"></div>
+          <span class="cc-counter" id="rep-li-counter">1 / 2</span>
+          <button class="cc-btn" id="rep-li-prev" aria-label="Anterior">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2L4 7l5 5"/></svg>
+          </button>
+          <button class="cc-btn" id="rep-li-next" aria-label="Próxima página">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2l5 5-5 5"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="rep-li-overflow" id="rep-li-overflow">
+        <div class="rep-li-track" id="rep-li-track">
+          <!-- Página 1 -->
+          <div class="rep-li-page">
+            <div class="rep-li-card">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7338739381832245248?collapsed=1"
+                height="500" width="504" frameborder="0" allowfullscreen title="Embedded post"
+                style="width:100%;height:500px;display:block;border:none;"></iframe>
+            </div>
+            <div class="rep-li-card">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7318330228118855680?collapsed=1"
+                height="500" width="504" frameborder="0" allowfullscreen title="Embedded post"
+                style="width:100%;height:500px;display:block;border:none;"></iframe>
+            </div>
+            <div class="rep-li-card">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7374957636993228800?collapsed=1"
+                height="500" width="504" frameborder="0" allowfullscreen title="Embedded post"
+                style="width:100%;height:500px;display:block;border:none;"></iframe>
+            </div>
+          </div>
+          <!-- Página 2 -->
+          <div class="rep-li-page">
+            <div class="rep-li-card">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7312935864647520257?collapsed=1"
+                height="500" width="504" frameborder="0" allowfullscreen title="Embedded post"
+                style="width:100%;height:500px;display:block;border:none;"></iframe>
+            </div>
+            <div class="rep-li-card">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7311031542569484290?collapsed=1"
+                height="500" width="504" frameborder="0" allowfullscreen title="Embedded post"
+                style="width:100%;height:500px;display:block;border:none;"></iframe>
+            </div>
+            <div class="rep-li-card">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7375109119877398528?collapsed=1"
+                height="500" width="504" frameborder="0" allowfullscreen title="Embedded post"
+                style="width:100%;height:500px;display:block;border:none;"></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1154,6 +1224,7 @@
 <!-- ═══ 5. PARCEIROS ═══ -->
 <section id="parceiros" class="sec">
   <div class="wrap">
+
     <div class="sec-header">
       <div class="sec-num">
         <span>§ 06</span>
@@ -1162,61 +1233,82 @@
       <h2>Marcas que confiam<br/>na <em>narrativa</em>.</h2>
     </div>
 
-    <div class="rep-layout">
-      <div class="rep-layout__text">
-        <p>Parcerias com marcas de segmentos variados — de tecnologia a esportes, de educação a empreendedorismo. O que une todas: a decisão de se comunicar com um público profissional qualificado, com autenticidade e profundidade executiva.</p>
-        <p>Cada parceria nasce de um alinhamento real entre o posicionamento da marca e a audiência construída ao longo de anos. O resultado é conteúdo que não parece publicidade — parece recomendação.</p>
-        <p>Formatos disponíveis: branded content, Reels patrocinados, cobertura de eventos, LinkedIn posts, palestras corporativas e aparições institucionais.</p>
-        <a href="#contato" class="btn primary" style="margin-top:8px;display:inline-flex;align-items:center;gap:8px;">Propor parceria <span class="arrow">↗</span></a>
+    <!-- Métricas rápidas -->
+    <div class="perf-strip" style="grid-template-columns:repeat(3,1fr);margin-bottom:56px;">
+      <div class="perf-strip__cell">
+        <div class="perf-strip__num"><em>08</em></div>
+        <div class="perf-strip__label">Marcas parceiras</div>
       </div>
-      <div class="parc-brands">
-        <div class="eyebrow" style="margin-bottom:20px;">↳ 08 marcas que já trabalharam comigo</div>
-        <div class="brand-grid">
-          <div class="brand-cell"><span class="tag">Esportes</span><span class="wm italic tight" style="--wm-c:#1A1714;font-family:var(--serif);font-size:clamp(28px,3.2vw,42px);font-weight:400;">Plié<em style="font-family:var(--sans);font-style:normal;font-size:0.5em;font-weight:600;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);margin-left:6px;">Sports</em></span><span class="yr">Performance</span></div>
-          <div class="brand-cell"><span class="tag">Beleza · varejo</span><span class="wm caps" style="--wm-c:#1A1714;letter-spacing:0.32em;font-size:clamp(16px,1.9vw,22px);">Sep<em style="color:#1A1714;">h</em>ora</span><span class="yr">Retail global</span></div>
-          <div class="brand-cell"><span class="tag">Comunidade</span><span class="wm tight" style="--wm-c:#9C3A6A;font-size:clamp(22px,2.6vw,32px);"><em style="color:#9C3A6A;">W</em>OW <em style="color:#1A1714;font-family:var(--serif);font-style:italic;font-weight:400;">Mulheres</em></span><span class="yr">Liderança fem.</span></div>
-          <div class="brand-cell"><span class="tag">Tecnologia</span><span class="wm lower tight" style="--wm-c:#1A1714;font-size:clamp(22px,2.6vw,32px);">In<em style="color:var(--accent);">tee</em>gra</span><span class="yr">B2B SaaS</span></div>
-          <div class="brand-cell"><span class="tag">Educação · tech</span><span class="wm lower tight" style="--wm-c:#6E4BE5;font-size:clamp(20px,2.2vw,28px);">Rocket<em style="color:#6E4BE5;">seat</em></span><span class="yr">B2B</span></div>
-          <div class="brand-cell"><span class="tag">Tecnologia · eventos</span><span class="wm tight" style="--wm-c:#1A1714;font-size:clamp(14px,1.6vw,20px);letter-spacing:0.04em;text-transform:uppercase;font-family:var(--sans);font-weight:600;">The Dev's<br/><em style="color:var(--accent);font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;font-size:1.1em;">Conference</em></span><span class="yr">TDC</span></div>
-          <div class="brand-cell"><span class="tag">Empreendedorismo</span><span class="wm lower" style="--wm-c:#005EB8;font-size:clamp(24px,2.8vw,34px);">Sebrae<em style="color:#005EB8;">/</em><span style="color:#00A8E1;">RN</span></span><span class="yr">Institucional</span></div>
-          <div class="brand-cell"><span class="tag">Educação · tech</span><span class="wm caps" style="--wm-c:#003366;font-size:clamp(20px,2.2vw,28px);letter-spacing:0.16em;">UFRN <em style="color:var(--accent);font-size:0.7em;">/IMD</em></span><span class="yr">Acadêmico</span></div>
+      <div class="perf-strip__cell">
+        <div class="perf-strip__num"><em>5</em>+</div>
+        <div class="perf-strip__label">Setores atendidos</div>
+      </div>
+      <div class="perf-strip__cell">
+        <div class="perf-strip__num"><em>4</em></div>
+        <div class="perf-strip__label">Depoimentos de parceiros</div>
+      </div>
+    </div>
+
+    <!-- Marcas -->
+    <div class="parc-brands-band">
+      <div class="parc-brands-band__head">
+        <span class="eyebrow">↳ Marcas que já trabalharam comigo</span>
+        <a href="#contato" class="parc-brands-band__cta">Propor parceria →</a>
+      </div>
+      <div class="brand-grid parc-brand-grid">
+        <div class="brand-cell"><span class="tag">Esportes</span><span class="wm italic tight" style="--wm-c:#1A1714;font-family:var(--serif);font-size:clamp(28px,3.2vw,42px);font-weight:400;">Plié<em style="font-family:var(--sans);font-style:normal;font-size:0.5em;font-weight:600;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);margin-left:6px;">Sports</em></span><span class="yr">Performance</span></div>
+        <div class="brand-cell"><span class="tag">Beleza · varejo</span><span class="wm caps" style="--wm-c:#1A1714;letter-spacing:0.32em;font-size:clamp(16px,1.9vw,22px);">Sep<em style="color:#1A1714;">h</em>ora</span><span class="yr">Retail global</span></div>
+        <div class="brand-cell"><span class="tag">Comunidade</span><span class="wm tight" style="--wm-c:#9C3A6A;font-size:clamp(22px,2.6vw,32px);"><em style="color:#9C3A6A;">W</em>OW <em style="color:#1A1714;font-family:var(--serif);font-style:italic;font-weight:400;">Mulheres</em></span><span class="yr">Liderança fem.</span></div>
+        <div class="brand-cell"><span class="tag">Tecnologia</span><span class="wm lower tight" style="--wm-c:#1A1714;font-size:clamp(22px,2.6vw,32px);">In<em style="color:var(--accent);">tee</em>gra</span><span class="yr">B2B SaaS</span></div>
+        <div class="brand-cell"><span class="tag">Educação · tech</span><span class="wm lower tight" style="--wm-c:#6E4BE5;font-size:clamp(20px,2.2vw,28px);">Rocket<em style="color:#6E4BE5;">seat</em></span><span class="yr">B2B</span></div>
+        <div class="brand-cell"><span class="tag">Tecnologia · eventos</span><span class="wm tight" style="--wm-c:#1A1714;font-size:clamp(14px,1.6vw,20px);letter-spacing:0.04em;text-transform:uppercase;font-family:var(--sans);font-weight:600;">The Dev's<br/><em style="color:var(--accent);font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;font-size:1.1em;">Conference</em></span><span class="yr">TDC</span></div>
+        <div class="brand-cell"><span class="tag">Empreendedorismo</span><span class="wm lower" style="--wm-c:#005EB8;font-size:clamp(24px,2.8vw,34px);">Sebrae<em style="color:#005EB8;">/</em><span style="color:#00A8E1;">RN</span></span><span class="yr">Institucional</span></div>
+        <div class="brand-cell"><span class="tag">Educação · tech</span><span class="wm caps" style="--wm-c:#003366;font-size:clamp(20px,2.2vw,28px);letter-spacing:0.16em;">UFRN <em style="color:var(--accent);font-size:0.7em;">/IMD</em></span><span class="yr">Acadêmico</span></div>
+      </div>
+    </div>
+
+    <!-- Depoimentos -->
+    <div class="parc-quotes">
+      <div class="eyebrow" style="margin-bottom:32px;">↳ O que as marcas dizem</div>
+
+      <!-- Depoimento destaque -->
+      <div class="parc-featured">
+        <blockquote class="parc-featured__quote">
+          "Izael é um comunicador nato. Traz às marcas conteúdo com naturalidade, qualidade e desenvoltura que poucos têm. Seu diferencial está em ser executivo — a comunicação aliada ao olhar estratégico transforma cada entrega em algo memorável."
+        </blockquote>
+        <div class="parc-featured__author">
+          <span class="parc-featured__brand">Plié Sports</span>
+          <span class="parc-featured__name">Marilene Ramos</span>
+          <span class="parc-featured__role">Diretora Executiva</span>
+        </div>
+      </div>
+
+      <!-- 3 depoimentos compactos -->
+      <div class="parc-cards">
+        <div class="parc-card">
+          <p class="parc-card__quote">"Trabalhar com o Izael é ter a certeza de uma entrega acima do esperado. Ele une comunicação forte, presença de palco e pensamento estratégico de um jeito muito raro."</p>
+          <div class="parc-card__author">
+            <span class="parc-card__name">Amanda Passavante</span>
+            <span class="parc-card__role">CEO · WOW Mulheres</span>
+          </div>
+        </div>
+        <div class="parc-card">
+          <p class="parc-card__quote">"Ter o Izael no nosso time de influenciadores é contar com um comunicador que realmente entende do que está falando. Ele agrega valor às nossas narrativas de produto com muita naturalidade."</p>
+          <div class="parc-card__author">
+            <span class="parc-card__name">Rogério Miranda</span>
+            <span class="parc-card__role">CEO · Inteegra</span>
+          </div>
+        </div>
+        <div class="parc-card">
+          <p class="parc-card__quote">"O Izael combina repertório executivo, visão de tecnologia e comunicação próxima da audiência. Ele não entrega apenas conteúdo: entrega contexto, credibilidade e conexão."</p>
+          <div class="parc-card__author">
+            <span class="parc-card__name">Josiane Assis</span>
+            <span class="parc-card__role">Head of Partnership · Rocketseat B2B</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="parc-testimonials">
-      <div class="eyebrow" style="margin-bottom:28px;">↳ O que as marcas dizem</div>
-      <div class="feedback-grid parc-feedback-grid">
-        <div class="feedback-card">
-          <p class="feedback-quote">Izael é um comunicador nato. Traz às marcas conteúdo com naturalidade, qualidade e desenvoltura que poucos têm. Seu diferencial está em ser executivo — a comunicação aliada ao olhar estratégico transforma cada entrega em algo memorável.</p>
-          <div class="feedback-author">
-            <span class="feedback-name">Marilene Ramos</span>
-            <span class="feedback-role">Diretora Executiva · Plié Sports</span>
-          </div>
-        </div>
-        <div class="feedback-card">
-          <p class="feedback-quote">Trabalhar com o Izael é ter a certeza de uma entrega acima do esperado. Ele une comunicação forte, presença de palco e pensamento estratégico de um jeito muito raro. Consegue transformar ideias complexas em mensagens claras, envolventes e relevantes para a audiência.</p>
-          <div class="feedback-author">
-            <span class="feedback-name">Amanda Passavante</span>
-            <span class="feedback-role">CEO · WOW Mulheres</span>
-          </div>
-        </div>
-        <div class="feedback-card">
-          <p class="feedback-quote">Ter o Izael no nosso time de influenciadores é contar com um comunicador que realmente entende do que está falando. Ele agrega valor às nossas narrativas de produto e conecta tecnologia, negócio e audiência com muita naturalidade.</p>
-          <div class="feedback-author">
-            <span class="feedback-name">Rogério Miranda</span>
-            <span class="feedback-role">CEO · Inteegra</span>
-          </div>
-        </div>
-        <div class="feedback-card">
-          <p class="feedback-quote">O Izael combina repertório executivo, visão de tecnologia e comunicação próxima da audiência. Ele não entrega apenas conteúdo: entrega contexto, credibilidade e conexão. Traduz temas estratégicos em conversas relevantes para o público e valiosas para a marca.</p>
-          <div class="feedback-author">
-            <span class="feedback-name">Josiane Assis</span>
-            <span class="feedback-role">Head of Partnership · Rocketseat B2B</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 <div class="wrap"><div class="rule"></div></div>
