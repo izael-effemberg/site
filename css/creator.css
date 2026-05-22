@@ -1325,11 +1325,12 @@ nav.top .links a.nav-kit:hover {
 /* ---- Platform Summary Cards (Resumo slide) ---- */
 .aud-plat-summary {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 360px));
   gap: 16px;
   margin-bottom: 40px;
+  justify-content: center;
 }
-@media (max-width: 1024px) { .aud-plat-summary { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) { .aud-plat-summary { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 500px) { .aud-plat-summary { grid-template-columns: 1fr; } }
 
 .aud-plat-card {
